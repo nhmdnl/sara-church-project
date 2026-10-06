@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import NoticeBanner from '../../components/NoticeBanner.astro';
+import About from '../../components/About.astro';
+import Services from '../../components/Services.astro';
+import FindUs from '../../components/FindUs.astro';
+import Contact from '../../components/Contact.astro';
+---
+
+<BaseLayout lang="am" currentPath="/am">
+  <!-- የማስታወቂያ ሰሌዳ (TIME-2) -->
+  <NoticeBanner lang="am" />
+
+  <!-- መግቢያ እና የቀጣይ አገልግሎት ፈጣን መረጃ (HOME-1, HOME-2) -->
+  <Hero lang="am" />
+
+  <!-- ስለ ቤተ ክርስቲያናችን እና ትውፊታችን (HOME-3) -->
+  <About lang="am" />
+
+  <!-- የአገልግሎት ሰዓታት እና የዘመን አቆጣጠር ማስታወሻ (TIME-1, TIME-3) -->
+  <Services lang="am" />
+
+  <!-- አድራሻ፣ ካርታ፣ የትራንስፖርት እና የመጀመሪያ ጉብኝት መመሪያ (FIND-1 to FIND-7) -->
+  <FindUs lang="am" />
+
+  <!-- የመገናኛ መረጃዎች እና መልእክት መላኪያ (CONT-1, CONT-2) -->
+  <Contact lang="am" />
+</BaseLayout>

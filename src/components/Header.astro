@@ -1,0 +1,158 @@
+---
+import ChurchEmblem from './ChurchEmblem.astro';
+import { getDictionary, getChurch, type Locale, getLocalizedUrl } from '../utils/i18n';
+
+interface Props {
+  lang: Locale;
+  currentPath?: string;
+}
+
+const { lang, currentPath = '/' } = Astro.props;
+const dict = getDictionary(lang);
+const church = getChurch(lang);
+
+// Compute target language switch URL
+const targetLang: Locale = lang === 'en' ? 'am' : 'en';
+const switchLangLabel = dict.switchLangName;
+
+// Normalize currentPath for route switching
+let cleanPath = currentPath;
+if (lang === 'am' && cleanPath.startsWith('/am')) {
+  cleanPath = cleanPath.slice(3) || '/';
+}
+const switchUrl = getLocalizedUrl(cleanPath, targetLang);
+
+// Localized navigation links
+const navItems = [
+  { href: `${getLocalizedUrl('/', lang)}#about`, label: dict.nav.about },
+  { href: `${getLocalizedUrl('/', lang)}#services`, label: dict.nav.services },
+  { href: `${getLocalizedUrl('/', lang)}#find-us`, label: dict.nav.findUs },
+  { href: `${getLocalizedUrl('/', lang)}#contact`, label: dict.nav.contact },
+];
+---
+
+<header class="sticky top-0 z-40 bg-church-cream/95 backdrop-blur-md border-b border-church-border shadow-xs transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20 sm:h-24">
+      
+      <!-- Brand & Title -->
+      <a
+        href={getLocalizedUrl('/', lang)}
+        class="flex items-center gap-3 sm:gap-4 py-2 group focus-visible:outline-church-gold"
+        aria-label={`${church.shortName} - ${dict.nav.home}`}
+      >
+        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-church-burgundy text-church-gold flex items-center justify-center shrink-0 border border-church-gold/40 shadow-xs transition-transform group-hover:scale-105">
+          <ChurchEmblem className="w-8 h-8 sm:w-10 sm:h-10 text-church-gold" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-lg sm:text-xl md:text-2xl text-church-burgundy tracking-tight group-hover:text-church-burgundy-light transition-colors leading-tight">
+            {church.shortName}
+          </span>
+          <span class="text-xs sm:text-sm text-church-muted font-medium hidden xs:inline-block leading-tight mt-0.5">
+            {church.tradition}
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation & Language Switch -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="touch-target px-3 py-2 text-church-charcoal hover:text-church-burgundy hover:bg-church-cream-alt/70 font-semibold rounded-md transition-colors text-base"
+          >
+            {item.label}
+          </a>
+        ))}
+
+        <!-- Visible Language Switch (LANG-2) -->
+        <div class="ml-2 pl-3 border-l border-church-border flex items-center">
+          <a
+            href={switchUrl}
+            class="touch-target px-3 py-1.5 rounded-full border border-church-gold bg-church-cream hover:bg-church-gold hover:text-white text-church-gold-dark font-bold text-base transition-colors flex items-center gap-1.5 shadow-xs"
+            aria-label={`Switch language to ${switchLangLabel}`}
+            hreflang={targetLang}
+          >
+            <span class="text-sm uppercase tracking-wider" aria-hidden="true">{targetLang === 'am' ? '🇪🇹' : '🇬🇧'}</span>
+            <span>{switchLangLabel}</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button & Language Switch -->
+      <div class="flex items-center gap-2 md:hidden">
+        <a
+          href={switchUrl}
+          class="touch-target px-2.5 py-1 text-sm font-bold border border-church-gold rounded-full text-church-burgundy hover:bg-church-gold hover:text-white transition-colors"
+          aria-label={`Switch language to ${switchLangLabel}`}
+          hreflang={targetLang}
+        >
+          {switchLangLabel}
+        </a>
+
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          class="touch-target p-2 text-church-burgundy hover:bg-church-cream-alt rounded-lg focus-visible:outline-church-gold"
+          aria-label={dict.nav.menu}
+          aria-expanded="false"
+          aria-controls="mobile-nav-menu"
+        >
+          <svg class="w-7 h-7 menu-icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg class="w-7 h-7 menu-icon-close hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Collapsible Menu -->
+  <div id="mobile-nav-menu" class="hidden md:hidden border-t border-church-border bg-church-cream px-4 pt-3 pb-6 space-y-2 shadow-lg">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav-link block touch-target px-4 py-3 rounded-md text-church-charcoal hover:bg-church-cream-alt hover:text-church-burgundy font-semibold text-lg"
+      >
+        {item.label}
+      </a>
+    ))}
+    <div class="pt-2 border-t border-church-border/60">
+      <p class="text-xs text-church-muted px-4 py-1">
+        {church.dedication}
+      </p>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile drawer toggle with accessible keyboard & focus support
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-nav-menu');
+  const openIcon = toggleBtn?.querySelector('.menu-icon-open');
+  const closeIcon = toggleBtn?.querySelector('.menu-icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (toggleBtn && menu) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
+      openIcon?.classList.toggle('hidden');
+      closeIcon?.classList.toggle('hidden');
+    });
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        openIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+      });
+    });
+  }
+</script>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getChurch } from '../../utils/i18n';
+
+const church = getChurch('am');
+---
+
+<BaseLayout
+  lang="am"
+  title="የተደራሽነት መግለጫ | ፈለገ ገነት ቤተ ክርስቲያን"
+  description="የፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን ድረ-ገጽ የተደራሽነት መግለጫ። ከዓለም አቀፉ የWCAG 2.2 AA ደረጃዎች ጋር የተጣጣመ።"
+  currentPath="/am/accessibility"
+>
+  <div class="py-12 sm:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="border-b border-church-border pb-6 space-y-3">
+        <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-church-burgundy tracking-tight">
+          የተደራሽነት መግለጫ
+        </h1>
+        <p class="text-sm sm:text-base text-church-muted">
+          ዓለም አቀፍ ደረጃ፡ Web Content Accessibility Guidelines (WCAG) 2.2 AA · ጥቅምት 2026
+        </p>
+      </div>
+
+      <div class="prose prose-stone max-w-none text-church-charcoal text-lg sm:text-xl leading-relaxed space-y-8">
+        
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            1. ቁርጠኝነታችን
+          </h2>
+          <p>
+            ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን ይህ ድረ-ገጽ ለአረጋውያን፣ የአካል ወይም የማየት እክል ላለባቸው ምእመናን እና ለሁሉም ተጠቃሚዎች ምቹ እና ተደራሽ እንዲሆን ትተጋለች።
+          </p>
+          <p>
+            ድረ-ገጻችን የዓለም አቀፉን የድረ-ገጽ ተደራሽነት ደረጃዎች (<strong>WCAG 2.2 Level AA</strong>) አሟልቶ እንዲገኝ ተደርጎ ተዘጋጅቷል።
+          </p>
+        </section>
+
+        <!-- Compliance Features Grid -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            2. የተተገበሩ የተደራሽነት መሥፈርቶች
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">ግልጽ እና ትልቅ የፊደል መጠን</h3>
+              <p class="text-base text-church-charcoal">
+                መሠረታዊው የጽሑፍ መጠን ቢያንስ 18 ፒክስል (px) ሲሆን፣ ለንባብ ምቹ እንዲሆን በቂ የመስመር ክፍተት (1.8) አለው።
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">ግልጽ የከለር ንፅፅር (Contrast)</h3>
+              <p class="text-base text-church-charcoal">
+                ጽሑፎች እና የጀርባ ቀለማት የማየት እክል ላለባቸው ሰዎች በግልጽ እንዲታዩ ከ4.5:1 የንፅፅር ምጥጥን በላይ እንዲሆኑ ተደርገዋል።
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">የኪቦርድ አጠቃቀም</h3>
+              <p class="text-base text-church-charcoal">
+                ያለ ማውዝ በኪቦርድ ብቻ እያንዳንዱን ቁልፍ እና አገናኝ መጫን እና ማሰስ ይቻላል።
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">ትላልቅ የመዳሰሻ ቁልፎች</h3>
+              <p class="text-base text-church-charcoal">
+                በስልክ ለሚጠቀሙ ሰዎች እያንዳንዱ የሚነካ ቁልፍ ቢያንስ 44×44 ፒክስል ስፋት አለው።
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">የግዕዝ እና አማርኛ ፊደላት ድጋፍ</h3>
+              <p class="text-base text-church-charcoal">
+                የኖቶ ሳንስ ኢትዮፒክ (Noto Sans Ethiopic) ፎንት በራሱ በድረ-ገጹ ላይ የተካተተ በመሆኑ በማንኛውም ስልክ እና ኮምፒውተር ላይ ፊደላት ሳይሰበሩ በንጽህና ይታያሉ።
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">ጽሑፍን ማሳደግ (Zoom)</h3>
+              <p class="text-base text-church-charcoal">
+                ስክሪኑን እስከ 200% ድረስ ቢያሳድጉት የገጹ አቀማመጥ አይዛባም።
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            3. አስተያየት እና እገዛ
+          </h2>
+          <p>
+            ይህንን ድረ-ገጽ ሲጠቀሙ ማንኛውም የተደራሽነት ችግር ካጋጠመዎት እባክዎ ያሳውቁን፡
+          </p>
+          <div class="p-4 rounded-xl bg-church-cream border border-church-border">
+            <p><strong>የአስተዳደር ቦርድ (Trustees)</strong></p>
+            <p><strong>ኢሜይል፡</strong> <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a></p>
+            <p><strong>ስልክ፡</strong> <a href={`tel:${church.contact.phone}`} class="text-church-burgundy font-bold underline">{church.contact.phoneDisplay}</a></p>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="pt-8 border-t border-church-border">
+        <a href="/am" class="touch-target inline-flex items-center gap-2 text-church-burgundy font-bold text-lg hover:underline">
+          ← ወደ መነሻ ገጽ ይመለሱ
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

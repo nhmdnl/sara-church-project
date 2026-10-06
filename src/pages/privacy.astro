@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getChurch } from '../utils/i18n';
+
+const church = getChurch('en');
+---
+
+<BaseLayout
+  lang="en"
+  title="Privacy Notice & Cookie Policy | Felege Genet Church"
+  description="Privacy Notice and Cookie Policy for Felege Genet Sema'etu Kidus Giorgis Church, London. Compliant with UK GDPR, DPA 2018, and PECR."
+  currentPath="/privacy"
+>
+  <div class="py-12 sm:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="border-b border-church-border pb-6 space-y-3">
+        <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-church-burgundy tracking-tight">
+          Privacy Notice &amp; Cookie Policy
+        </h1>
+        <p class="text-sm sm:text-base text-church-muted">
+          Last updated: October 2026 · Felege Genet Sema'etu Kidus Giorgis Church (Registered UK Charity)
+        </p>
+      </div>
+
+      <div class="prose prose-stone max-w-none text-church-charcoal text-lg sm:text-xl leading-relaxed space-y-8">
+        
+        <!-- Summary Box -->
+        <div class="bg-church-cream p-6 rounded-2xl border border-church-border">
+          <h2 class="text-xl font-bold text-church-burgundy mb-2">
+            Key Highlights
+          </h2>
+          <ul class="list-disc pl-5 space-y-1.5 text-base sm:text-lg">
+            <li><strong>Zero tracking cookies:</strong> This website sets no non-essential, marketing, or tracking cookies.</li>
+            <li><strong>Minimal data collection:</strong> We only collect data you actively submit via our contact form and essential server security logs.</li>
+            <li><strong>No third-party sharing:</strong> We never sell, rent, or share personal data with advertisers or commercial organizations.</li>
+            <li><strong>UK GDPR compliant:</strong> Fully aligned with the Data Protection Act 2018 and UK General Data Protection Regulation.</li>
+          </ul>
+        </div>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            1. Who We Are (Data Controller)
+          </h2>
+          <p>
+            Felege Genet Sema'etu Kidus Giorgis Church is an Ethiopian Orthodox Tewahedo Church congregation and registered charity based in London, United Kingdom. Under the UK GDPR and the Data Protection Act 2018, the church's Board of Trustees acts as the Data Controller for information collected through this website.
+          </p>
+          <p>
+            <strong>Contact:</strong> Data Protection Trustee, Email: <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a>.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            2. What Data We Collect &amp; Why
+          </h2>
+          <p>
+            We process personal data only when strictly necessary:
+          </p>
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-church-cream/50 border border-church-border/70">
+              <h3 class="font-bold text-lg text-church-charcoal">A. Contact Form Inquiries</h3>
+              <p class="text-base text-church-muted mt-1">
+                When you fill out our contact form, we collect your name, email address, and message.
+              </p>
+              <p class="text-base text-church-muted mt-1">
+                <strong>Purpose &amp; Lawful Basis:</strong> Legitimate interests (Article 6(1)(f) UK GDPR) — to respond directly to your inquiry, pastoral questions, or visit requests.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-church-cream/50 border border-church-border/70">
+              <h3 class="font-bold text-lg text-church-charcoal">B. Essential Server Access Logs</h3>
+              <p class="text-base text-church-muted mt-1">
+                Our web hosting infrastructure records standard technical connection data, including IP address, browser type, and timestamp of request.
+              </p>
+              <p class="text-base text-church-muted mt-1">
+                <strong>Purpose &amp; Lawful Basis:</strong> Legitimate interests — to maintain system security, protect against cyber attacks, and ensure network reliability.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            3. Cookie Policy (PECR &amp; UK GDPR)
+          </h2>
+          <p>
+            In Phase 1, <strong>this website does not use any non-essential cookies</strong>, analytics trackers (such as Google Analytics or Meta Pixel), or advertising beacons.
+          </p>
+          <p>
+            Our language switching mechanism is strictly URL-based (`/` for English and `/am` for Amharic) and does not store cookies on your device.
+          </p>
+          <p>
+            If any privacy-friendly analytics or embedded media are proposed in future phases, the church will implement a compliant cookie consent banner prior to activation.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            4. External Links &amp; On-Demand Maps
+          </h2>
+          <p>
+            To protect your privacy, interactive maps on our “Find Us” section load on-demand only when you explicitly tap “Load Interactive Map”. Before you interact with that control, no external map scripts or connections run.
+          </p>
+          <p>
+            Our website also contains links to third-party services such as Transport for London (TfL), Google Maps, and Apple Maps. Once you navigate away to an external website or app, their respective privacy policies apply.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            5. Data Retention
+          </h2>
+          <p>
+            Contact inquiries are retained in our secure parish mailbox only for as long as necessary to address your communication (typically up to 12 months), after which they are safely deleted. Essential server logs are automatically purged on a 30-day rotating schedule.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            6. Your Rights
+          </h2>
+          <p>
+            Under UK data protection law, you have statutory rights including:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-base sm:text-lg">
+            <li>The right to request access to personal data held about you.</li>
+            <li>The right to request correction of inaccurate information.</li>
+            <li>The right to request deletion of your information.</li>
+            <li>The right to object to or restrict processing.</li>
+          </ul>
+          <p>
+            To exercise any of these rights, please write to us at <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a>. If you have concerns about our handling of your data, you also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" class="text-church-burgundy font-bold underline">ico.org.uk</a>.
+          </p>
+        </section>
+
+      </div>
+
+      <div class="pt-8 border-t border-church-border">
+        <a href="/" class="touch-target inline-flex items-center gap-2 text-church-burgundy font-bold text-lg hover:underline">
+          ← Back to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

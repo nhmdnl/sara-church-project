@@ -1,0 +1,40 @@
+{
+  "name": {
+    "en": "Felege Genet Sema'etu Kidus Giorgis Church",
+    "am": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን"
+  },
+  "shortName": {
+    "en": "Felege Genet Church",
+    "am": "ፈለገ ገነት ቤተ ክርስቲያን"
+  },
+  "tradition": {
+    "en": "Ethiopian Orthodox Tewahedo Church, London, United Kingdom",
+    "am": "የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን፣ ለንደን፣ ዩናይትድ ኪንግደም"
+  },
+  "dedication": {
+    "en": "Dedicated to Saint Mary, the Virgin Mother of Jesus Christ, and Saint George",
+    "am": "ለእመቤታችን ቅድስት ድንግል ማርያም እና ለሰማዕቱ ቅዱስ ጊዮርጊስ የተሰየመ"
+  },
+  "charity": {
+    "name": "Felege Genet Sema'etu Kidus Giorgis Church",
+    "number": "Pending Trustee Confirmation",
+    "statement": {
+      "en": "Felege Genet Sema'etu Kidus Giorgis Church is a registered charity in England and Wales.",
+      "am": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በእንግሊዝ እና ዌልስ የተመዘገበ የበጎ አድራጎት ድርጅት ነው።"
+    }
+  },
+  "contact": {
+    "phone": "+44 20 7946 0192",
+    "phoneDisplay": "020 7946 0192 (Placeholder)",
+    "email": "contact@felegegenet.org.uk",
+    "officeHours": {
+      "en": "Sunday: 07:00 – 14:00 | Saturday: 16:00 – 20:00",
+      "am": "እሑድ፡ 7:00 – 14:00 | ቅዳሜ፡ 16:00 – 20:00"
+    }
+  },
+  "social": {
+    "telegram": "",
+    "whatsapp": "",
+    "youtube": ""
+  }
+}

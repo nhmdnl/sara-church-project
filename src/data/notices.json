@@ -1,0 +1,13 @@
+{
+  "active": true,
+  "level": "info",
+  "updatedAt": "2026-10-06",
+  "title": {
+    "en": "Important Parish Notice",
+    "am": "አስፈላጊ የቤተ ክርስቲያን ማስታወቂያ"
+  },
+  "message": {
+    "en": "Welcome to our official website. All service times and venue details on this page are current. Please check back regularly for updates regarding upcoming holy feasts and parish assemblies.",
+    "am": "ወደ ይፋዊ ድረ-ገጻችን እንኳን በደህና መጡ። በዚህ ገጽ ላይ የተገለጹት የአገልግሎት ሰዓታት እና የቦታ መረጃዎች ትክክለኛ ናቸው። ለመጪዎቹ ቅዱሳን በዓላት እና ጉባኤያት መረጃዎችን በየጊዜው ይከታተሉ።"
+  }
+}

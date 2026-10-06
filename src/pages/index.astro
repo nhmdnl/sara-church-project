@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import NoticeBanner from '../components/NoticeBanner.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import FindUs from '../components/FindUs.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<BaseLayout lang="en" currentPath="/">
+  <!-- Short-Notice Parish Alert Banner (TIME-2) -->
+  <NoticeBanner lang="en" />
+
+  <!-- Hero with Next Service & Direct Navigation (HOME-1, HOME-2) -->
+  <Hero lang="en" />
+
+  <!-- About Parish & Tradition (HOME-3) -->
+  <About lang="en" />
+
+  <!-- Service Times Schedule & Calendar Guidance (TIME-1, TIME-3) -->
+  <Services lang="en" />
+
+  <!-- Find Us, Map, Public Transport, and First-Time Visitor Guide (FIND-1 to FIND-7) -->
+  <FindUs lang="en" />
+
+  <!-- Contact Details and Secure Form (CONT-1, CONT-2) -->
+  <Contact lang="en" />
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import ChurchEmblem from './ChurchEmblem.astro';
+import { getDictionary, getChurch, type Locale } from '../utils/i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const church = getChurch(lang);
+---
+
+<section id="about" class="py-14 sm:py-20 bg-white border-b border-church-border">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center space-y-4">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-church-cream text-church-burgundy border border-church-gold/40 mx-auto">
+        <ChurchEmblem className="w-7 h-7 text-church-gold" />
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-church-burgundy tracking-tight">
+        {dict.about.title}
+      </h2>
+      <p class="text-xl font-medium text-church-gold-dark max-w-2xl mx-auto">
+        {dict.about.subtitle}
+      </p>
+    </div>
+
+    <!-- About us narrative (~100-150 words) (HOME-3) -->
+    <div class="mt-8 space-y-6 text-church-charcoal text-lg sm:text-xl leading-relaxed text-left sm:text-justify bg-church-cream/40 p-6 sm:p-8 rounded-2xl border border-church-border/80 shadow-xs">
+      <p>
+        {dict.about.body1}
+      </p>
+      <p>
+        {dict.about.body2}
+      </p>
+
+      <div class="pt-4 border-t border-church-border/60 flex flex-wrap items-center justify-between gap-4 text-sm sm:text-base text-church-muted">
+        <span class="font-semibold text-church-burgundy">
+          ✝ {church.tradition}
+        </span>
+        <span class="italic">
+          {church.dedication}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>

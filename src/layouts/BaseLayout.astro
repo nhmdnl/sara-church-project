@@ -1,0 +1,127 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getDictionary, getChurch, getVenue, type Locale, getLocalizedUrl } from '../utils/i18n';
+
+interface Props {
+  lang: Locale;
+  title?: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const { lang, title, description, currentPath = '/' } = Astro.props;
+const dict = getDictionary(lang);
+const church = getChurch(lang);
+const venue = getVenue(lang);
+
+const pageTitle = title || dict.meta.title;
+const pageDescription = description || dict.meta.description;
+
+const siteUrl = 'https://felegegenet.org.uk';
+const canonicalUrl = `${siteUrl}${getLocalizedUrl(currentPath, lang)}`;
+const enAlternateUrl = `${siteUrl}${getLocalizedUrl(currentPath, 'en')}`;
+const amAlternateUrl = `${siteUrl}${getLocalizedUrl(currentPath, 'am')}`;
+
+// Structured Data: Schema.org PlaceOfWorship (FIND-8)
+const schemaOrgData = {
+  '@context': 'https://schema.org',
+  '@type': 'PlaceOfWorship',
+  'name': church.name,
+  'alternateName': church.shortName,
+  'description': pageDescription,
+  'url': canonicalUrl,
+  'telephone': church.contact.phone,
+  'email': church.contact.email,
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': venue.address.line1,
+    'addressLocality': venue.address.city,
+    'postalCode': venue.address.postcode,
+    'addressCountry': 'GB'
+  },
+  'geo': {
+    '@type': 'GeoCoordinates',
+    'latitude': venue.coordinates.latitude,
+    'longitude': venue.coordinates.longitude
+  },
+  'openingHoursSpecification': [
+    {
+      '@type': 'OpeningHoursSpecification',
+      'dayOfWeek': 'Sunday',
+      'opens': '07:30',
+      'closes': '12:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      'dayOfWeek': 'Saturday',
+      'opens': '17:00',
+      'closes': '19:30'
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang={lang} dir="ltr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <!-- Canonical & Alternate Hreflang URLs (SEO-1, LANG-2) -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={enAlternateUrl} />
+    <link rel="alternate" hreflang="am" href={amAlternateUrl} />
+    <link rel="alternate" hreflang="x-default" href={enAlternateUrl} />
+
+    <!-- Preload Self-hosted Ethiopic Font for Fast Mobile LCP (NFR-1, LANG-3) -->
+    <link
+      rel="preload"
+      href="/fonts/noto-sans-ethiopic-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Open Graph Metadata for Social / Messaging Previews (SEO-2) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:site_name" content={church.name} />
+    <meta property="og:locale" content={lang === 'am' ? 'am_ET' : 'en_GB'} />
+
+    <!-- Twitter Card (SEO-2) -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+
+    <!-- Schema.org JSON-LD PlaceOfWorship (FIND-8) -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrgData)} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-church-cream text-church-charcoal flex flex-col min-h-screen">
+    
+    <!-- Skip to Content Link for Keyboard and Screen Reader Accessibility (HOME-4, NFR-2) -->
+    <a href="#main-content" class="skip-link">
+      {dict.nav.skipToContent}
+    </a>
+
+    <!-- Header Navigation (HOME-1, HOME-4, LANG-2) -->
+    <Header lang={lang} currentPath={currentPath} />
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer Disclosures (LEGAL-1) -->
+    <Footer lang={lang} />
+
+  </body>
+</html>

@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getChurch } from '../../utils/i18n';
+
+const church = getChurch('am');
+---
+
+<BaseLayout
+  lang="am"
+  title="የግላዊነት እና የኩኪ ፖሊሲ | ፈለገ ገነት ቤተ ክርስቲያን"
+  description="የፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን የግላዊነት እና የኩኪ መመሪያ። ከዩናይትድ ኪንግደም የመረጃ ጥበቃ ህግጋት (UK GDPR) ጋር የተጣጣመ።"
+  currentPath="/am/privacy"
+>
+  <div class="py-12 sm:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="border-b border-church-border pb-6 space-y-3">
+        <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-church-burgundy tracking-tight">
+          የግላዊነት ፖሊሲ እና የኩኪ መመሪያ
+        </h1>
+        <p class="text-sm sm:text-base text-church-muted">
+          የመጨረሻ ማሻሻያ፡ ጥቅምት 2026 · ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን (የተመዘገበ የበጎ አድራጎት ድርጅት)
+        </p>
+      </div>
+
+      <div class="prose prose-stone max-w-none text-church-charcoal text-lg sm:text-xl leading-relaxed space-y-8">
+        
+        <!-- Summary Box -->
+        <div class="bg-church-cream p-6 rounded-2xl border border-church-border">
+          <h2 class="text-xl font-bold text-church-burgundy mb-2">
+            ዋና ዋና ነጥቦች
+          </h2>
+          <ul class="list-disc pl-5 space-y-1.5 text-base sm:text-lg">
+            <li><strong>መከታተያ ኩኪ የለም፡</strong> ይህ ድረ-ገጽ ምንም ዓይነት የማስታወቂያ ወይም የተጠቃሚ መከታተያ ኩኪዎችን አይጠቀምም።</li>
+            <li><strong>አነስተኛ የመረጃ አሰባሰብ፡</strong> በመልእክት መላኪያ ቅጹ አማካኝነት በፈቃደኝነት የሚልኩልንን መረጃ እና ለደህንነት የሚያስፈልጉ የሰርቨር ምዝግቦችን ብቻ እንይዛለን።</li>
+            <li><strong>ለሶስተኛ ወገን አይተላለፍም፡</strong> የእርስዎን የግል መረጃ ለማስታወቂያ ወይም ለንግድ ተቋማት በፍጹም አናጋራም።</li>
+            <li><strong>ከህግ ጋር የተጣጣመ፡</strong> ከዩናይትድ ኪንግደም የመረጃ ጥበቃ ደንብ (UK GDPR 2018) ጋር ሙሉ በሙሉ የተጣጣመ ነው።</li>
+          </ul>
+        </div>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            1. እኛ ማን ነን? (የመረጃ ባለቤት)
+          </h2>
+          <p>
+            ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በለንደን፣ ዩናይትድ ኪንግደም የምትገኝ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን እና የተመዘገበ የበጎ አድራጎት ድርጅት ናት። የቤተ ክርስቲያኑ አስተዳደር ቦርድ (Trustees) በዚህ ድረ-ገጽ የሚሰበሰበውን መረጃ በሃላፊነት የሚቆጣጠር አካል ነው።
+          </p>
+          <p>
+            <strong>አድራሻ፡</strong> የመረጃ ጥበቃ አስተዳዳሪ፣ ኢሜይል፡ <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a>።
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            2. ምን ዓይነት መረጃ እንሰበስባለን? ለምንስ?
+          </h2>
+          <p>
+            መረጃዎችን የምንሰበስበው አስፈላጊ ሲሆን ብቻ ነው፡
+          </p>
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-church-cream/50 border border-church-border/70">
+              <h3 class="font-bold text-lg text-church-charcoal">ሀ. የመልእክት መላኪያ ቅጽ</h3>
+              <p class="text-base text-church-muted mt-1">
+                የመገናኛ ቅጹን ሲሞሉ ስምዎትን፣ የኢሜይል አድራሻዎትን እና መልእክትዎትን እንቀበላለን። ይህ መረጃ ለጥያቄዎ ወይም ለመንፈሳዊ ፍላጎትዎ ምላሽ ለመስጠት ብቻ ያገለግላል።
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-church-cream/50 border border-church-border/70">
+              <h3 class="font-bold text-lg text-church-charcoal">ለ. የቴክኒክ እና የደህንነት ምዝገባ</h3>
+              <p class="text-base text-church-muted mt-1">
+                ድረ-ገጹ በደህንነት እንዲሠራ የሰርቨር ሲስተሙ የኢንተርኔት አድራሻ (IP address) እና የመሳሪያ ዓይነት መረጃዎችን ለደህንነት ጥበቃ ብቻ ይመዘግባል።
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            3. የኩኪ መመሪያ (Cookie Policy)
+          </h2>
+          <p>
+            በአንደኛው ምዕራፍ (Phase 1)፣ <strong>ይህ ድረ-ገጽ ምንም ዓይነት አላስፈላጊ ኩኪዎችን አይጠቀምም</strong>። የቋንቋ ምርጫው የሚከናወነው በቀጥታ በአድራሻ አገናኝ (URL) እንጂ ኩኪዎችን በማስቀመጥ አይደለም።
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            4. የመብትዎ ጥበቃ
+          </h2>
+          <p>
+            በዩኬ የመረጃ ጥበቃ ህግ መሰረት፣ በእኛ ዘንድ ያለዎትን መረጃ የማየት፣ የማስተካከል ወይም እንዲሰረዝ የመጠየቅ ሙሉ መብት አለዎት። ማንኛውንም ጥያቄ በኢሜይል አድራሻችን <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a> መላክ ይችላሉ።
+          </p>
+        </section>
+
+      </div>
+
+      <div class="pt-8 border-t border-church-border">
+        <a href="/am" class="touch-target inline-flex items-center gap-2 text-church-burgundy font-bold text-lg hover:underline">
+          ← ወደ መነሻ ገጽ ይመለሱ
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

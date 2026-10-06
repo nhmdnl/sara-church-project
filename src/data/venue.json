@@ -1,0 +1,98 @@
+{
+  "name": {
+    "en": "Felege Genet Worship Sanctuary",
+    "am": "የፈለገ ገነት የአምልኮ አዳራሽ"
+  },
+  "hostBuilding": {
+    "en": "St. Gabriel's Community Hall (Host Venue)",
+    "am": "የቅዱስ ገብርኤል ማኅበረሰብ አዳራሽ (ጊዜያዊ)"
+  },
+  "address": {
+    "line1": "Churchill Gardens Road",
+    "line2": "Pimlico",
+    "city": "London",
+    "postcode": "SW1V 3EN",
+    "country": "United Kingdom"
+  },
+  "coordinates": {
+    "latitude": 51.4882,
+    "longitude": -0.1378
+  },
+  "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=51.4882,-0.1378",
+  "appleMapsUrl": "https://maps.apple.com/?daddr=51.4882,-0.1378",
+  "entranceInstructions": {
+    "en": "Please enter through the main side courtyard entrance. Look for the church banner and welcoming stewards at the gate.",
+    "am": "እባክዎ በዋናው የጎን ግቢ በር በኩል ይግቡ። በበሩ ላይ የቤተ ክርስቲያኑን ሰሌዳ እና አገልጋዮችን ያገኛሉ።"
+  },
+  "publicTransport": {
+    "stations": [
+      {
+        "name": { "en": "Pimlico Station (Victoria Line)", "am": "ፒምሊኮ ባቡር ጣቢያ (ቪክቶሪያ መስመር)" },
+        "distance": { "en": "8 minutes walk (0.4 miles)", "am": "የ8 ደቂቃ የእግር መንገድ" }
+      },
+      {
+        "name": { "en": "Victoria Station (National Rail & Underground)", "am": "ቪክቶሪያ ባቡር ጣቢያ" },
+        "distance": { "en": "14 minutes walk or 5 minutes by bus", "am": "የ14 ደቂቃ የእግር መንገድ ወይም 5 ደቂቃ በአውቶቡስ" }
+      }
+    ],
+    "busRoutes": [
+      {
+        "routes": "24, 360, C10",
+        "stop": { "en": "St George's Square / Lupus Street", "am": "ሴንት ጆርጅስ ስኩዌር" },
+        "walkingTime": { "en": "3 minutes walk", "am": "የ3 ደቂቃ የእግር መንገድ" }
+      }
+    ],
+    "tflPlannerUrl": "https://tfl.gov.uk/plan-a-journey/"
+  },
+  "accessibility": {
+    "stepFree": {
+      "en": "Fully step-free, ramped ground-level entrance to the sanctuary, fellowship hall, and courtyard.",
+      "am": "ወደ ቤተ መቅደሱ እና አዳራሹ የሚወስድ ሙሉ በሙሉ ደረጃ የሌለው ምቹ መግቢያ አለው።"
+    },
+    "toilets": {
+      "en": "Accessible, gender-neutral wheelchair toilets with emergency call cords available on the ground floor.",
+      "am": "በመሬት ወለል ላይ ለአካል ጉዳተኞች ተስማሚ የሆኑ የመጸዳጃ ክፍሎች አሉ።"
+    },
+    "parking": {
+      "en": "On-site Blue Badge parking spaces available on advance notice. Free Sunday street parking on adjacent residential roads after 08:30 AM (please check local signage).",
+      "am": "ለአካል ጉዳተኞች የተመደቡ የመኪና ማቆሚያዎች አሉ። እሑድ ጠዋት ከ8፡30 ጀምሮ በአካባቢው መንገዶች ላይ ነጻ ማቆም ይቻላል (እባክዎ የመንገድ ምልክቶችን ያረጋግጡ)።"
+    }
+  },
+  "firstVisitGuide": {
+    "language": {
+      "title": { "en": "Language of the Service", "am": "የአገልግሎቱ ቋንቋ" },
+      "detail": {
+        "en": "The liturgical prayers and hymns are chanted in ancient Ge'ez and Amharic, with gospel readings, sermons, and announcements delivered in both Amharic and English.",
+        "am": "ሥርዓተ ቅዳሴው እና ማኅሌቱ በጥንታዊ ግዕዝ እና አማርኛ የሚከናወን ሲሆን፤ ወንጌል፣ ስብከት እና ማስታወቂያዎች በአማርኛ እና በእንግሊዝኛ ይተላለፋሉ።"
+      }
+    },
+    "length": {
+      "title": { "en": "Service Length & Arrival", "am": "የአገልግሎት ርዝማኔ እና የመድረሻ ሰዓት" },
+      "detail": {
+        "en": "The Sunday Divine Liturgy runs approximately 3.5 to 4 hours. You are welcome to arrive at any point, though arriving before the reading of the Holy Gospel (around 08:30 AM) is encouraged.",
+        "am": "የሰንበት ቅዳሴ በግምት ከ3.5 እስከ 4 ሰዓታት ይቆያል። በማንኛውም ሰዓት መምጣት የሚቻል ቢሆንም ከወንጌል ንባብ በፊት (ከጠዋቱ 2:30 በፊት) መድረስ ይመረጣል።"
+      }
+    },
+    "dress": {
+      "title": { "en": "Dress & Footwear", "am": "አለባበስ እና የጫማ ሥርዓት" },
+      "detail": {
+        "en": "Modest traditional or formal attire is customary. Women typically cover their heads and shoulders with a white shawl (Netela). Please remove shoes before stepping onto the sacred carpeted sanctuary.",
+        "am": "ልከኛ እና የተከበረ አለባበስ ይመረጣል። እህቶች ነጭ ነጠላ ይለብሳሉ። ወደ ምንጣፉ ቤተ መቅደስ ከመግባታችን በፊት ጫማ እናወልቃለን።"
+      }
+    },
+    "children": {
+      "title": { "en": "Children & Families", "am": "ሕፃናት እና ቤተሰብ" },
+      "detail": {
+        "en": "Children are a cherished blessing in our church and participate directly in communal worship alongside their parents. A quiet space is available if toddlers need comforting.",
+        "am": "ሕፃናት በቤተ ክርስቲያናችን የተወደዱ ናቸው፤ ከወላጆቻቸው ጋር በአምልኮው ይሳተፋሉ። ሕፃናትን ለማረጋጋት ምቹ ቦታ አለ።"
+      }
+    },
+    "photography": {
+      "title": { "en": "Photography & Recording", "am": "ፎቶግራፍ እና ድምጽ መቅዳት" },
+      "detail": {
+        "en": "To maintain sacred reverence and protect congregant privacy, photography, videography, and unauthorized recording are strictly prohibited inside the sanctuary during services.",
+        "am": "የጸሎት መንፈስን ለመጠበቅ እና የምእመናንን ክብር ለመጠበቅ በቅዳሴ ጊዜ ፎቶግራፍ ማንሳት ወይም ድምጽ መቅዳት ፈጽሞ የተከለከለ ነው።"
+      }
+    }
+  }
+}

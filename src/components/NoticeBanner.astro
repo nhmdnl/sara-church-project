@@ -1,0 +1,37 @@
+---
+import { getNotice, getDictionary, type Locale } from '../utils/i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const notice = getNotice(lang);
+
+if (!notice.active) {
+  return null;
+}
+
+const isWarning = notice.level === 'warning';
+const bgClass = isWarning ? 'bg-amber-50 border-amber-300 text-amber-950' : 'bg-church-burgundy/5 border-church-gold/40 text-church-charcoal';
+const badgeClass = isWarning ? 'bg-amber-600 text-white' : 'bg-church-burgundy text-white';
+---
+
+<aside
+  class={`relative border-y py-3.5 px-4 sm:px-6 transition-colors ${bgClass}`}
+  aria-label={dict.notice.badge}
+  role="region"
+>
+  <div class="max-w-7xl mx-auto flex items-start sm:items-center justify-between gap-4">
+    <div class="flex items-start sm:items-center gap-3">
+      <span class={`shrink-0 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider ${badgeClass}`}>
+        {dict.notice.badge}
+      </span>
+      <div class="text-base sm:text-lg">
+        <strong class="font-bold mr-1.5 text-church-burgundy">{notice.title}:</strong>
+        <span>{notice.message}</span>
+      </div>
+    </div>
+  </div>
+</aside>

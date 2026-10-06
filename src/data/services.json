@@ -1,0 +1,98 @@
+{
+  "nextService": {
+    "day": {
+      "en": "Sunday",
+      "am": "እሑድ"
+    },
+    "time": {
+      "en": "07:30 – 11:30 AM",
+      "am": "ከጠዋቱ 1፡30 – 5፡30"
+    },
+    "title": {
+      "en": "Sunday Divine Liturgy (Kidase)",
+      "am": "የሰንበት ቅዳሴ"
+    }
+  },
+  "regularServices": [
+    {
+      "id": "sunday-liturgy",
+      "title": {
+        "en": "Sunday Divine Liturgy (Kidase)",
+        "am": "የሰንበት ቅዳሴ"
+      },
+      "day": {
+        "en": "Every Sunday",
+        "am": "ዘወትር እሑድ"
+      },
+      "time": {
+        "en": "07:30 – 11:30 UK Time",
+        "am": "1:30 – 5:30 (የዩናይትድ ኪንግደም ሰዓት)"
+      },
+      "description": {
+        "en": "Morning prayers, Divine Liturgy followed by spiritual teachings and community fellowship.",
+        "am": "የማለዳ ጸሎት፣ ሥርዓተ ቅዳሴ፣ የቃለ እግዚአብሔር ትምህርት እና የወንድማማች ማዕድ።"
+      }
+    },
+    {
+      "id": "saturday-vespers",
+      "title": {
+        "en": "Saturday Evening Prayer & Mahlet",
+        "am": "የቅዳሜ ምሽት ዋዜማ እና ማኅሌት"
+      },
+      "day": {
+        "en": "Every Saturday",
+        "am": "ዘወትር ቅዳሜ"
+      },
+      "time": {
+        "en": "17:00 – 19:30 UK Time",
+        "am": "11:00 – 1:30 ምሽት"
+      },
+      "description": {
+        "en": "Vespers service, preparation prayer, and liturgical hymnody according to Saint Yared.",
+        "am": "የምሽት ጸሎት፣ የዝግጅት ጸሎት እና የቅዱስ ያሬድ ዝማሬ።"
+      }
+    },
+    {
+      "id": "feast-saint-george",
+      "title": {
+        "en": "Monthly Commemoration of Saint George",
+        "am": "ወርሃዊ የቅዱስ ጊዮርጊስ በዓል"
+      },
+      "day": {
+        "en": "23rd Day of every Ethiopian Month",
+        "am": "በየወሩ በ23ኛው ቀን"
+      },
+      "time": {
+        "en": "07:00 – 11:00 UK Time",
+        "am": "1:00 – 5:00 ጠዋት"
+      },
+      "description": {
+        "en": "Commemoration of the patron saint and great martyr Kidus Giorgis.",
+        "am": "የታላቁ ሰማዕት የቅዱስ ጊዮርጊስ ወርሃዊ መታሰቢያ በዓል እና ቅዳሴ።"
+      }
+    },
+    {
+      "id": "feast-saint-mary",
+      "title": {
+        "en": "Monthly Commemoration of Saint Mary (Kidane Mihret & Mariam)",
+        "am": "ወርሃዊ የእመቤታችን ቅድስት ድንግል ማርያም በዓል"
+      },
+      "day": {
+        "en": "16th & 21st Days of every Ethiopian Month",
+        "am": "በየወሩ በ16 እና በ21ኛው ቀን"
+      },
+      "time": {
+        "en": "07:00 – 11:00 UK Time",
+        "am": "1:00 – 5:00 ጠዋት"
+      },
+      "description": {
+        "en": "Commemoration of the Holy Virgin Saint Mary (Pact of Mercy and Commemoration Day).",
+        "am": "የእመቤታችን የኪዳነ ምሕረት እና የማርያም ወርሃዊ በዓላት።"
+      }
+    }
+  ],
+  "calendarNote": {
+    "en": "Times are shown in UK local time (GMT/BST). Special feasts follow the Ethiopian Orthodox ecclesiastical calendar alongside Gregorian dates.",
+    "am": "ሰዓታት በዩናይትድ ኪንግደም ሰዓት (GMT/BST) የተገለጹ ናቸው። ልዩ በዓላት ከግሪጎሪያን አቆጣጠር ጎን ለጎን የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን የዘመን አቆጣጠርን ይከተላሉ።"
+  }
+}

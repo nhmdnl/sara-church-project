@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getChurch } from '../utils/i18n';
+
+const church = getChurch('en');
+---
+
+<BaseLayout
+  lang="en"
+  title="Accessibility Statement | Felege Genet Church"
+  description="Accessibility Statement for Felege Genet Sema'etu Kidus Giorgis Church website. Built in conformance with WCAG 2.2 Level AA standards."
+  currentPath="/accessibility"
+>
+  <div class="py-12 sm:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="border-b border-church-border pb-6 space-y-3">
+        <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-church-burgundy tracking-tight">
+          Accessibility Statement
+        </h1>
+        <p class="text-sm sm:text-base text-church-muted">
+          Conformance target: Web Content Accessibility Guidelines (WCAG) 2.2 Level AA · October 2026
+        </p>
+      </div>
+
+      <div class="prose prose-stone max-w-none text-church-charcoal text-lg sm:text-xl leading-relaxed space-y-8">
+        
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            1. Our Commitment
+          </h2>
+          <p>
+            Felege Genet Sema'etu Kidus Giorgis Church is dedicated to ensuring digital accessibility for all visitors, including older parishioners, congregants with visual, physical, or auditory impairments, and users of assistive technologies.
+          </p>
+          <p>
+            We strive to maintain full compliance with the <strong>Web Content Accessibility Guidelines (WCAG) 2.2 Level AA</strong> across every page of our website.
+          </p>
+        </section>
+
+        <!-- Compliance Features Grid -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            2. Accessibility Measures Implemented
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">Clear Typography &amp; Scale</h3>
+              <p class="text-base text-church-charcoal">
+                Base body text is set to a minimum of 18px with generous 1.75+ line height for maximum legibility across all generations.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">High Contrast Ratios</h3>
+              <p class="text-base text-church-charcoal">
+                Colors are engineered to exceed the WCAG 4.5:1 minimum contrast ratio for standard text and 3:1 for large text and UI components.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">Keyboard &amp; Focus Navigability</h3>
+              <p class="text-base text-church-charcoal">
+                Every interactive element is fully reachable via keyboard tab navigation, equipped with high-visibility gold focus rings and a skip-to-content mechanism.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">Generous Touch Targets</h3>
+              <p class="text-base text-church-charcoal">
+                All buttons, links, and form controls have minimum touch dimensions of at least 44×44px for effortless interaction on smartphones and touchscreens.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">Self-Hosted Ethiopic Typography</h3>
+              <p class="text-base text-church-charcoal">
+                Self-hosted Noto Sans Ethiopic fonts ensure crisp, complete rendering of Amharic and Ge'ez characters across iOS, Android, macOS, and Windows.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-church-cream border border-church-border space-y-2">
+              <h3 class="font-bold text-lg text-church-burgundy">Responsive Scaling &amp; Zoom</h3>
+              <p class="text-base text-church-charcoal">
+                The interface functions smoothly from 320px viewport width up to 4K displays, and remains fully operational at 200% browser zoom without layout breakage.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            3. Assistive Technology Compatibility
+          </h2>
+          <p>
+            This website is developed using semantic HTML5 and has been tested for compatibility with:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-base sm:text-lg">
+            <li>Modern screen readers including VoiceOver (iOS/macOS), TalkBack (Android), and NVDA (Windows).</li>
+            <li>Browser-native speech synthesizers and magnifiers.</li>
+            <li>Keyboard-only navigation without pointing devices.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl font-bold text-church-burgundy">
+            4. Feedback &amp; Contact
+          </h2>
+          <p>
+            We continually test and improve our digital services. If you encounter any barriers accessing content on this website, or if you need information in an alternative format, please let us know:
+          </p>
+          <div class="p-4 rounded-xl bg-church-cream border border-church-border">
+            <p><strong>Accessibility Lead:</strong> Board of Trustees</p>
+            <p><strong>Email:</strong> <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a></p>
+            <p><strong>Telephone:</strong> <a href={`tel:${church.contact.phone}`} class="text-church-burgundy font-bold underline">{church.contact.phoneDisplay}</a></p>
+          </div>
+          <p class="text-base text-church-muted">
+            We aim to respond to accessibility inquiries within 3 business days.
+          </p>
+        </section>
+
+      </div>
+
+      <div class="pt-8 border-t border-church-border">
+        <a href="/" class="touch-target inline-flex items-center gap-2 text-church-burgundy font-bold text-lg hover:underline">
+          ← Back to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

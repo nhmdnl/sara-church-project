@@ -1,0 +1,134 @@
+---
+import ChurchEmblem from './ChurchEmblem.astro';
+import { getDictionary, getChurch, getServices, getVenue, type Locale, getLocalizedUrl } from '../utils/i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const church = getChurch(lang);
+const services = getServices(lang);
+const venue = getVenue(lang);
+---
+
+<section class="relative bg-gradient-to-b from-church-cream via-church-cream to-church-cream-alt pt-8 pb-12 sm:pt-14 sm:pb-20 border-b border-church-border">
+  <!-- Subtle decorative gold accent top band -->
+  <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-church-burgundy via-church-gold to-church-burgundy"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Primary Intro Column (HOME-1) -->
+      <div class="lg:col-span-7 space-y-6 text-left">
+        
+        <!-- Church Tradition Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-church-cream-alt border border-church-gold/50 text-church-burgundy text-sm sm:text-base font-semibold shadow-xs">
+          <ChurchEmblem className="w-5 h-5 text-church-gold" />
+          <span>{church.tradition}</span>
+        </div>
+
+        <!-- Full Name (HOME-1) -->
+        <h1 class="font-serif text-3xl xs:text-4xl sm:text-5xl lg:text-5xl font-extrabold text-church-burgundy tracking-tight leading-tight">
+          {church.name}
+        </h1>
+
+        <!-- Dedication Line (HOME-1) -->
+        <p class="text-lg sm:text-xl font-medium text-church-gold-dark italic leading-relaxed border-l-4 border-church-gold pl-4">
+          {church.dedication}
+        </p>
+
+        <!-- Short Welcome (HOME-1) -->
+        <p class="text-lg sm:text-xl text-church-charcoal leading-relaxed max-w-2xl">
+          {dict.hero.welcomeText}
+        </p>
+
+        <!-- Fast Actions & Directions Link (HOME-2) -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a
+            href={venue.directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="touch-target px-6 py-3.5 rounded-lg bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-lg shadow-md transition-all flex items-center gap-2.5 focus-visible:outline-church-gold"
+          >
+            <svg class="w-6 h-6 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>{dict.hero.getDirections}</span>
+          </a>
+
+          <a
+            href={`${getLocalizedUrl('/', lang)}#services`}
+            class="touch-target px-5 py-3.5 rounded-lg border-2 border-church-burgundy text-church-burgundy hover:bg-church-burgundy hover:text-white font-bold text-lg transition-colors flex items-center gap-2 focus-visible:outline-church-gold"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>{dict.hero.viewSchedule}</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Quick Essentials Card without Scrolling (HOME-2) -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border-2 border-church-gold/30 relative overflow-hidden space-y-6">
+          
+          <div class="flex items-center justify-between border-b border-church-border pb-4">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-sm font-bold border border-emerald-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" aria-hidden="true"></span>
+              {dict.hero.nextServiceBadge}
+            </span>
+            <span class="text-sm font-semibold text-church-muted">
+              {services.nextService.day}
+            </span>
+          </div>
+
+          <!-- Service Time Highlight -->
+          <div class="space-y-1">
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-church-burgundy">
+              {services.nextService.title}
+            </h2>
+            <p class="text-2xl sm:text-3xl font-extrabold text-church-gold-dark tracking-tight">
+              {services.nextService.time}
+            </p>
+          </div>
+
+          <!-- Short Venue Location (HOME-2) -->
+          <div class="bg-church-cream rounded-xl p-4 border border-church-border space-y-2">
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-church-burgundy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+              <div>
+                <p class="font-bold text-church-charcoal text-base sm:text-lg">
+                  {venue.name}
+                </p>
+                <p class="text-sm sm:text-base text-church-muted">
+                  {venue.fullAddressString}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Maps App Trigger -->
+          <a
+            href={venue.directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="touch-target w-full py-3 px-4 rounded-lg bg-church-cream-alt hover:bg-church-gold hover:text-white text-church-burgundy font-bold text-base transition-colors flex items-center justify-center gap-2 border border-church-border"
+          >
+            <span>{dict.findUs.openInGoogle}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
