@@ -1,0 +1,133 @@
+backend:
+  name: git-gateway
+  branch: master
+
+# Optional local backend for offline development
+local_backend: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "parish_settings"
+    label: "Parish Content & Notices"
+    files:
+      - name: "notices"
+        label: "Notice Banner (Short-Notice Alerts)"
+        file: "src/data/notices.json"
+        fields:
+          - { label: "Active Banner", name: "active", widget: "boolean", default: true }
+          - { label: "Notice Level", name: "level", widget: "select", options: ["info", "warning"], default: "info" }
+          - { label: "Last Updated", name: "updatedAt", widget: "date" }
+          - label: "Title (English)"
+            name: "title"
+            widget: "object"
+            fields:
+              - { label: "English Title", name: "en", widget: "string" }
+              - { label: "Amharic Title", name: "am", widget: "string" }
+          - label: "Message"
+            name: "message"
+            widget: "object"
+            fields:
+              - { label: "English Message", name: "en", widget: "text" }
+              - { label: "Amharic Message", name: "am", widget: "text" }
+
+      - name: "services"
+        label: "Service Times & Schedule"
+        file: "src/data/services.json"
+        fields:
+          - label: "Next Service Highlight"
+            name: "nextService"
+            widget: "object"
+            fields:
+              - label: "Day"
+                name: "day"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Amharic", name: "am", widget: "string" }
+              - label: "Time"
+                name: "time"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Amharic", name: "am", widget: "string" }
+              - label: "Title"
+                name: "title"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Amharic", name: "am", widget: "string" }
+          - label: "Regular Services"
+            name: "regularServices"
+            widget: "list"
+            fields:
+              - { label: "Identifier", name: "id", widget: "string" }
+              - label: "Service Title"
+                name: "title"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Amharic", name: "am", widget: "string" }
+              - label: "Day of Service"
+                name: "day"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Amharic", name: "am", widget: "string" }
+              - label: "Time of Service"
+                name: "time"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Amharic", name: "am", widget: "string" }
+              - label: "Description"
+                name: "description"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "text" }
+                  - { label: "Amharic", name: "am", widget: "text" }
+
+      - name: "venue"
+        label: "Venue & Location"
+        file: "src/data/venue.json"
+        fields:
+          - label: "Venue Name"
+            name: "name"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Amharic", name: "am", widget: "string" }
+          - label: "Host Building (if any)"
+            name: "hostBuilding"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Amharic", name: "am", widget: "string" }
+          - label: "Address"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "Line 1", name: "line1", widget: "string" }
+              - { label: "Line 2", name: "line2", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Postcode", name: "postcode", widget: "string" }
+              - { label: "Country", name: "country", widget: "string" }
+
+      - name: "church"
+        label: "Church Details & Charity Status"
+        file: "src/data/church.json"
+        fields:
+          - label: "Charity Details"
+            name: "charity"
+            widget: "object"
+            fields:
+              - { label: "Charity Name", name: "name", widget: "string" }
+              - { label: "Registration Number", name: "number", widget: "string" }
+          - label: "Contact Details"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Telephone", name: "phone", widget: "string" }
+              - { label: "Phone Display", name: "phoneDisplay", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
