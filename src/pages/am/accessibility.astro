@@ -23,7 +23,7 @@ const church = getChurch('am');
         </p>
       </div>
 
-      <div class="prose prose-stone max-w-none text-church-charcoal text-lg sm:text-xl leading-relaxed space-y-8">
+      <div class="prose prose-stone max-w-none text-church-charcoal text-lg sm:text-xl leading-relaxed space-y-8 break-words">
         
         <section class="space-y-3">
           <h2 class="font-serif text-2xl font-bold text-church-burgundy">
@@ -98,8 +98,8 @@ const church = getChurch('am');
           </p>
           <div class="p-4 rounded-xl bg-church-cream border border-church-border">
             <p><strong>የአስተዳደር ቦርድ (Trustees)</strong></p>
-            <p><strong>ኢሜይል፡</strong> <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline">{church.contact.email}</a></p>
-            <p><strong>ስልክ፡</strong> <a href={`tel:${church.contact.phone}`} class="text-church-burgundy font-bold underline">{church.contact.phoneDisplay}</a></p>
+            <p><strong>ኢሜይል፡</strong> <a href={`mailto:${church.contact.email}`} class="text-church-burgundy font-bold underline break-all">{church.contact.email}</a></p>
+            <p><strong>ስልክ፡</strong> <a href={`tel:${church.contact.phone}`} class="text-church-burgundy font-bold underline break-all">{church.contact.phoneDisplay}</a></p>
           </div>
         </section>
 

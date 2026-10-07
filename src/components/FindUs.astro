@@ -10,7 +10,7 @@ const dict = getDictionary(lang);
 const venue = getVenue(lang);
 ---
 
-<section id="find-us" class="py-14 sm:py-20 bg-white border-b border-church-border">
+<section id="find-us" class="scroll-mt-24 sm:scroll-mt-28 py-14 sm:py-20 bg-white border-b border-church-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
     
     <!-- Section Heading -->
@@ -64,12 +64,14 @@ const venue = getVenue(lang);
                 data-address={venue.fullAddressString}
                 data-copied-text={dict.findUs.copied}
                 data-original-text={dict.findUs.copyAddress}
+                data-live-copied={lang === 'am' ? 'አድራሻው ተቀድቷል' : 'Address copied to clipboard'}
               >
                 <svg class="w-4 h-4 text-church-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
                 </svg>
                 <span id="copy-btn-text">{dict.findUs.copyAddress}</span>
               </button>
+              <span id="copy-status-live" class="sr-only" aria-live="polite" role="status"></span>
             </div>
           </div>
 
@@ -154,6 +156,9 @@ const venue = getVenue(lang);
                 type="button"
                 id="load-interactive-map-btn"
                 class="mt-4 touch-target px-5 py-2.5 rounded-lg bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-base shadow-sm transition-colors flex items-center gap-2 focus-visible:outline-church-gold"
+                aria-expanded="false"
+                aria-controls="interactive-map-frame"
+                data-loaded-announcement={dict.findUs.mapLoadedNotice}
               >
                 <svg class="w-5 h-5 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
@@ -163,7 +168,8 @@ const venue = getVenue(lang);
             </div>
 
             <!-- Dynamic map mount point (populated on user tap) -->
-            <div id="interactive-map-frame" class="w-full h-full hidden"></div>
+            <div id="interactive-map-frame" class="w-full h-full hidden" role="region" aria-label={dict.findUs.interactiveMapTitle}></div>
+            <div id="map-status-live" class="sr-only" aria-live="polite" role="status"></div>
 
           </div>
 
@@ -219,7 +225,7 @@ const venue = getVenue(lang);
               href={venue.publicTransport.tflPlannerUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-church-burgundy font-bold text-base hover:underline"
+              class="touch-target min-h-[44px] min-w-[44px] inline-flex items-center gap-2 text-church-burgundy font-bold text-base hover:underline focus-visible:outline-church-gold"
             >
               <span>{dict.findUs.planJourneyTfl}</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -245,7 +251,7 @@ const venue = getVenue(lang);
             ♿
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
-            {dict.findUs.accessTitle.includes('ተደራሽነት') ? 'ደረጃ የሌለው መግቢያ' : 'Step-free Access'}
+            {lang === 'am' ? 'ደረጃ የሌለው መግቢያ' : 'Step-free Access'}
           </h4>
           <p class="text-sm sm:text-base text-church-muted leading-relaxed">
             {venue.accessibility.stepFree}
@@ -257,7 +263,7 @@ const venue = getVenue(lang);
             🚻
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
-            {dict.findUs.accessTitle.includes('ተደራሽነት') ? 'ተስማሚ መጸዳጃ' : 'Accessible Toilets'}
+            {lang === 'am' ? 'ተስማሚ መጸዳጃ' : 'Accessible Toilets'}
           </h4>
           <p class="text-sm sm:text-base text-church-muted leading-relaxed">
             {venue.accessibility.toilets}
@@ -269,7 +275,7 @@ const venue = getVenue(lang);
             🅿️
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
-            {dict.findUs.accessTitle.includes('ተደራሽነት') ? 'የመኪና ማቆሚያ' : 'Parking & Blue Badge'}
+            {lang === 'am' ? 'የመኪና ማቆሚያ' : 'Parking & Blue Badge'}
           </h4>
           <p class="text-sm sm:text-base text-church-muted leading-relaxed">
             {venue.accessibility.parking}
@@ -307,24 +313,38 @@ const venue = getVenue(lang);
 </section>
 
 <script>
-  // Copy address to clipboard
+  // Copy address to clipboard with dynamic aria-live feedback
   const copyBtn = document.getElementById('copy-address-btn');
   const copyBtnText = document.getElementById('copy-btn-text');
+  const copyStatusLive = document.getElementById('copy-status-live');
 
   if (copyBtn && copyBtnText) {
     copyBtn.addEventListener('click', async () => {
       const address = copyBtn.getAttribute('data-address') || '';
       const copiedText = copyBtn.getAttribute('data-copied-text') || 'Copied!';
       const originalText = copyBtn.getAttribute('data-original-text') || 'Copy Address';
+      const liveText = copyBtn.getAttribute('data-live-copied') || 'Address copied to clipboard';
+
+      const updateSuccessState = () => {
+        copyBtnText.textContent = copiedText;
+        copyBtn.setAttribute('aria-label', copiedText);
+        copyBtn.classList.add('bg-emerald-100', 'text-emerald-900');
+        if (copyStatusLive) {
+          copyStatusLive.textContent = liveText;
+        }
+        setTimeout(() => {
+          copyBtnText.textContent = originalText;
+          copyBtn.setAttribute('aria-label', originalText);
+          copyBtn.classList.remove('bg-emerald-100', 'text-emerald-900');
+          if (copyStatusLive) {
+            copyStatusLive.textContent = '';
+          }
+        }, 3000);
+      };
 
       try {
         await navigator.clipboard.writeText(address);
-        copyBtnText.textContent = copiedText;
-        copyBtn.classList.add('bg-emerald-100', 'text-emerald-900');
-        setTimeout(() => {
-          copyBtnText.textContent = originalText;
-          copyBtn.classList.remove('bg-emerald-100', 'text-emerald-900');
-        }, 3000);
+        updateSuccessState();
       } catch (err) {
         // Fallback
         const textarea = document.createElement('textarea');
@@ -333,10 +353,7 @@ const venue = getVenue(lang);
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        copyBtnText.textContent = copiedText;
-        setTimeout(() => {
-          copyBtnText.textContent = originalText;
-        }, 3000);
+        updateSuccessState();
       }
     });
   }
@@ -345,6 +362,7 @@ const venue = getVenue(lang);
   const loadMapBtn = document.getElementById('load-interactive-map-btn');
   const staticMapView = document.getElementById('static-map-view');
   const interactiveMapFrame = document.getElementById('interactive-map-frame');
+  const mapStatusLive = document.getElementById('map-status-live');
 
   if (loadMapBtn && staticMapView && interactiveMapFrame) {
     loadMapBtn.addEventListener('click', () => {
@@ -363,6 +381,12 @@ const venue = getVenue(lang);
       interactiveMapFrame.appendChild(iframe);
       staticMapView.classList.add('hidden');
       interactiveMapFrame.classList.remove('hidden');
+
+      loadMapBtn.setAttribute('aria-expanded', 'true');
+      const loadedNotice = loadMapBtn.getAttribute('data-loaded-announcement') || 'Interactive map loaded';
+      if (mapStatusLive) {
+        mapStatusLive.textContent = loadedNotice;
+      }
     });
   }
 </script>

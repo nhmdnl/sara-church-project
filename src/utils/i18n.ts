@@ -117,9 +117,21 @@ export function getVenue(lang: Locale) {
 }
 
 export function getLocalizedUrl(path: string, lang: Locale): string {
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  let cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (cleanPath === '/am' || cleanPath === '/am/') {
+    cleanPath = '/';
+  } else if (cleanPath.startsWith('/am/')) {
+    cleanPath = cleanPath.slice(3);
+  }
+  if (!cleanPath.startsWith('/')) {
+    cleanPath = `/${cleanPath}`;
+  }
+  if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+    cleanPath = cleanPath.slice(0, -1);
+  }
+
   if (lang === 'en') {
     return cleanPath;
   }
-  return `/am${cleanPath === '/' ? '' : cleanPath}`;
+  return cleanPath === '/' ? '/am' : `/am${cleanPath}`;
 }

@@ -11,7 +11,7 @@ const church = getChurch(lang);
 const privacyUrl = getLocalizedUrl('/privacy', lang);
 ---
 
-<section id="contact" class="py-14 sm:py-20 bg-church-cream border-b border-church-border">
+<section id="contact" class="scroll-mt-24 sm:scroll-mt-28 py-14 sm:py-20 bg-church-cream border-b border-church-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="max-w-3xl mx-auto text-center space-y-4">
@@ -42,13 +42,13 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                 </svg>
               </div>
-              <div class="space-y-1">
+              <div class="space-y-1 min-w-0 flex-1">
                 <span class="text-xs font-bold text-church-gold-dark uppercase tracking-wider block">
                   {dict.contact.telephone}
                 </span>
                 <a
                   href={`tel:${church.contact.phone}`}
-                  class="text-lg sm:text-xl font-bold text-church-burgundy hover:underline touch-target"
+                  class="text-lg sm:text-xl font-bold text-church-burgundy hover:underline break-all touch-target max-w-full"
                 >
                   {church.contact.phoneDisplay}
                 </a>
@@ -65,7 +65,7 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <div class="space-y-1">
+              <div class="space-y-1 min-w-0 flex-1">
                 <span class="text-xs font-bold text-church-gold-dark uppercase tracking-wider block">
                   {dict.contact.email}
                 </span>
@@ -107,7 +107,7 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
             {lang === 'am' ? 'ጥያቄዎን ወይም አስተያየትዎን ከዚህ በታች ባለው ቅጽ ይላኩልን።' : 'Send a message directly to our parish trustees and clergy.'}
           </p>
 
-          <form id="parish-contact-form" class="space-y-5" method="POST" action="/api/contact">
+          <form id="parish-contact-form" class="space-y-5" method="POST" action="/api/contact" novalidate>
             
             <!-- Anti-spam Honeypot (CONT-2) -->
             <div class="hidden" aria-hidden="true">
@@ -129,6 +129,9 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
                 placeholder={dict.contact.namePlaceholder}
                 class="w-full px-4 py-3 rounded-xl border border-church-border bg-church-cream/30 text-church-charcoal text-base focus:border-church-gold focus:ring-2 focus:ring-church-gold/20 focus:outline-none transition-colors"
               />
+              <p id="contact-name-error" class="hidden text-sm font-semibold text-red-700" role="alert">
+                {lang === 'am' ? 'እባክዎ ስምዎን ያስገቡ።' : 'Please enter your name.'}
+              </p>
             </div>
 
             <!-- Email Input -->
@@ -145,6 +148,9 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
                 placeholder={dict.contact.emailPlaceholder}
                 class="w-full px-4 py-3 rounded-xl border border-church-border bg-church-cream/30 text-church-charcoal text-base focus:border-church-gold focus:ring-2 focus:ring-church-gold/20 focus:outline-none transition-colors"
               />
+              <p id="contact-email-error" class="hidden text-sm font-semibold text-red-700" role="alert">
+                {lang === 'am' ? 'እባክዎ ትክክለኛ የኢሜይል አድራሻ ያስገቡ።' : 'Please enter a valid email address.'}
+              </p>
             </div>
 
             <!-- Message Textarea -->
@@ -160,6 +166,9 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
                 placeholder={dict.contact.messagePlaceholder}
                 class="w-full px-4 py-3 rounded-xl border border-church-border bg-church-cream/30 text-church-charcoal text-base focus:border-church-gold focus:ring-2 focus:ring-church-gold/20 focus:outline-none transition-colors"
               ></textarea>
+              <p id="contact-message-error" class="hidden text-sm font-semibold text-red-700" role="alert">
+                {lang === 'am' ? 'እባክዎ መልእክትዎን ያስገቡ።' : 'Please enter your message.'}
+              </p>
             </div>
 
             <!-- Privacy Consent Statement (CONT-2, LEGAL-2) -->
@@ -199,11 +208,57 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
 </section>
 
 <script>
-  // Form submission handler with anti-spam check and feedback
+  // Form submission handler with anti-spam check and accessible validation feedback
   const form = document.getElementById('parish-contact-form') as HTMLFormElement | null;
   const successAlert = document.getElementById('form-success-alert');
   const errorAlert = document.getElementById('form-error-alert');
   const submitBtn = document.getElementById('submit-form-btn');
+
+  const fields = [
+    {
+      input: document.getElementById('contact-name') as HTMLInputElement | null,
+      error: document.getElementById('contact-name-error'),
+    },
+    {
+      input: document.getElementById('contact-email') as HTMLInputElement | null,
+      error: document.getElementById('contact-email-error'),
+    },
+    {
+      input: document.getElementById('contact-message') as HTMLTextAreaElement | null,
+      error: document.getElementById('contact-message-error'),
+    },
+  ];
+
+  function validateField(item: { input: HTMLElement | null; error: HTMLElement | null }): boolean {
+    const input = item.input as HTMLInputElement | HTMLTextAreaElement | null;
+    if (!input) return true;
+    const isValid = input.checkValidity();
+    if (!isValid) {
+      input.setAttribute('aria-invalid', 'true');
+      if (item.error) {
+        input.setAttribute('aria-describedby', item.error.id);
+        item.error.classList.remove('hidden');
+      }
+      input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-200');
+    } else {
+      input.removeAttribute('aria-invalid');
+      if (item.error) {
+        input.removeAttribute('aria-describedby');
+        item.error.classList.add('hidden');
+      }
+      input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-200');
+    }
+    return isValid;
+  }
+
+  // Real-time validation: clear error and aria-invalid on input once valid
+  fields.forEach((item) => {
+    item.input?.addEventListener('input', () => {
+      if (item.input?.getAttribute('aria-invalid') === 'true') {
+        validateField(item);
+      }
+    });
+  });
 
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -215,7 +270,21 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
         return;
       }
 
-      if (form.checkValidity()) {
+      let allValid = true;
+      let firstInvalidInput: HTMLElement | null = null;
+
+      fields.forEach((item) => {
+        const valid = validateField(item);
+        if (!valid) {
+          allValid = false;
+          if (!firstInvalidInput && item.input) {
+            firstInvalidInput = item.input;
+          }
+        }
+      });
+
+      if (allValid) {
+        errorAlert?.classList.add('hidden');
         if (submitBtn) {
           submitBtn.setAttribute('disabled', 'true');
           submitBtn.classList.add('opacity-75');
@@ -224,6 +293,12 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
         // Simulate successful delivery to church mailbox
         setTimeout(() => {
           form.reset();
+          fields.forEach((item) => {
+            item.input?.removeAttribute('aria-invalid');
+            item.input?.removeAttribute('aria-describedby');
+            item.error?.classList.add('hidden');
+            item.input?.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-200');
+          });
           successAlert?.classList.remove('hidden');
           errorAlert?.classList.add('hidden');
           if (submitBtn) {
@@ -234,6 +309,7 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
       } else {
         errorAlert?.classList.remove('hidden');
         successAlert?.classList.add('hidden');
+        firstInvalidInput?.focus();
       }
     });
   }

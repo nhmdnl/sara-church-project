@@ -33,22 +33,21 @@ const navItems = [
 
 <header class="sticky top-0 z-40 bg-church-cream/95 backdrop-blur-md border-b border-church-border shadow-xs transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20 sm:h-24">
+    <div class="flex flex-wrap md:flex-nowrap items-center justify-between min-h-20 sm:min-h-24 py-2 gap-y-2">
       
       <!-- Brand & Title -->
       <a
         href={getLocalizedUrl('/', lang)}
-        class="flex items-center gap-3 sm:gap-4 py-2 group focus-visible:outline-church-gold"
-        aria-label={`${church.shortName} - ${dict.nav.home}`}
+        class="flex items-center gap-3 sm:gap-4 py-2 group focus-visible:outline-church-gold min-w-0 max-w-full"
       >
         <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-church-burgundy text-church-gold flex items-center justify-center shrink-0 border border-church-gold/40 shadow-xs transition-transform group-hover:scale-105">
           <ChurchEmblem className="w-8 h-8 sm:w-10 sm:h-10 text-church-gold" />
         </div>
-        <div class="flex flex-col">
-          <span class="font-serif font-bold text-lg sm:text-xl md:text-2xl text-church-burgundy tracking-tight group-hover:text-church-burgundy-light transition-colors leading-tight">
+        <div class="flex flex-col min-w-0">
+          <span class="font-serif font-bold text-lg sm:text-xl md:text-2xl text-church-burgundy tracking-tight group-hover:text-church-burgundy-light transition-colors leading-tight break-words">
             {church.shortName}
           </span>
-          <span class="text-xs sm:text-sm text-church-muted font-medium hidden xs:inline-block leading-tight mt-0.5">
+          <span class="text-xs sm:text-sm text-church-muted font-medium hidden xs:inline-block leading-tight mt-0.5 break-words">
             {church.tradition}
           </span>
         </div>
@@ -80,7 +79,7 @@ const navItems = [
       </nav>
 
       <!-- Mobile Menu Button & Language Switch -->
-      <div class="flex items-center gap-2 md:hidden">
+      <div class="flex items-center gap-2 md:hidden shrink-0 ml-auto max-w-full">
         <a
           href={switchUrl}
           class="touch-target px-2.5 py-1 text-sm font-bold border border-church-gold rounded-full text-church-burgundy hover:bg-church-gold hover:text-white transition-colors"
@@ -111,7 +110,7 @@ const navItems = [
   </div>
 
   <!-- Mobile Collapsible Menu -->
-  <div id="mobile-nav-menu" class="hidden md:hidden border-t border-church-border bg-church-cream px-4 pt-3 pb-6 space-y-2 shadow-lg">
+  <div id="mobile-nav-menu" class="hidden md:hidden border-t border-church-border bg-church-cream px-4 pt-3 pb-6 space-y-2 shadow-lg" role="region" aria-label="Mobile Navigation">
     {navItems.map((item) => (
       <a
         href={item.href}
@@ -130,29 +129,95 @@ const navItems = [
 
 <script>
   // Mobile drawer toggle with accessible keyboard & focus support
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const toggleBtn = document.getElementById('mobile-menu-toggle') as HTMLButtonElement | null;
   const menu = document.getElementById('mobile-nav-menu');
   const openIcon = toggleBtn?.querySelector('.menu-icon-open');
   const closeIcon = toggleBtn?.querySelector('.menu-icon-close');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
 
   if (toggleBtn && menu) {
+    function getFocusableElements(): HTMLElement[] {
+      if (!menu) return [];
+      const focusable = menu.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      return Array.from(focusable).filter((el) => !el.hasAttribute('disabled'));
+    }
+
+    function openDrawer() {
+      if (!menu || !toggleBtn) return;
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      menu.classList.remove('hidden');
+      openIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+
+      const focusable = getFocusableElements();
+      if (focusable.length > 0) {
+        focusable[0].focus();
+      }
+    }
+
+    function closeDrawer(restoreFocus: boolean = true) {
+      if (!menu || !toggleBtn) return;
+      const wasOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+
+      if (restoreFocus && wasOpen) {
+        toggleBtn.focus();
+      }
+    }
+
     toggleBtn.addEventListener('click', () => {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-      menu.classList.toggle('hidden');
-      openIcon?.classList.toggle('hidden');
-      closeIcon?.classList.toggle('hidden');
+      if (isExpanded) {
+        closeDrawer(true);
+      } else {
+        openDrawer();
+      }
     });
 
-    // Close menu when a link is clicked
+    // Close menu when a link is clicked and restore focus
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        openIcon?.classList.remove('hidden');
-        closeIcon?.classList.add('hidden');
+        closeDrawer(true);
       });
+    });
+
+    // Keyboard handling: Escape to dismiss, Tab key focus trap
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+      if (!isOpen) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeDrawer(true);
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusable = getFocusableElements();
+        if (focusable.length === 0) return;
+
+        const firstElement = focusable[0];
+        const lastElement = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          // Shift + Tab: if on first element or outside, cycle to last element
+          if (document.activeElement === firstElement || !menu.contains(document.activeElement)) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          // Tab: if on last element or outside, cycle to first element
+          if (document.activeElement === lastElement || !menu.contains(document.activeElement)) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
     });
   }
 </script>
