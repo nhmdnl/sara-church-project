@@ -7,3 +7,12 @@ build/
 .astro/
 *.log
 *~lock~*
+
+# Agentic documents & workflows
+.agents/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+ORIGINAL_REQUEST.md
+TEST_READY.md
+TEST_INFRA.md
