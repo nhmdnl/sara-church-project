@@ -47,7 +47,7 @@ const navItems = [
           <span class="font-serif font-bold text-lg sm:text-xl md:text-2xl text-church-burgundy tracking-tight group-hover:text-church-burgundy-light transition-colors leading-tight break-words">
             {church.shortName}
           </span>
-          <span class="text-xs sm:text-sm text-church-muted font-medium hidden xs:inline-block leading-tight mt-0.5 break-words">
+          <span class="text-xs sm:text-sm text-church-muted font-medium hidden md:inline-block leading-tight mt-0.5 break-words">
             {church.tradition}
           </span>
         </div>
@@ -126,10 +126,18 @@ const navItems = [
   </div>
 </header>
 
+<!-- Mobile Menu Backdrop Overlay -->
+<div
+  id="mobile-menu-backdrop"
+  class="fixed inset-0 bg-black/40 backdrop-blur-xs z-30 hidden md:hidden"
+  aria-hidden="true"
+></div>
+
 <script>
   // Mobile drawer toggle with accessible keyboard & focus support
   const toggleBtn = document.getElementById('mobile-menu-toggle') as HTMLButtonElement | null;
   const menu = document.getElementById('mobile-nav-menu');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
   const openIcon = toggleBtn?.querySelector('.menu-icon-open');
   const closeIcon = toggleBtn?.querySelector('.menu-icon-close');
   const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
@@ -147,6 +155,7 @@ const navItems = [
       if (!menu || !toggleBtn) return;
       toggleBtn.setAttribute('aria-expanded', 'true');
       menu.classList.remove('hidden');
+      backdrop?.classList.remove('hidden');
       openIcon?.classList.add('hidden');
       closeIcon?.classList.remove('hidden');
 
@@ -161,6 +170,7 @@ const navItems = [
       const wasOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
       toggleBtn.setAttribute('aria-expanded', 'false');
       menu.classList.add('hidden');
+      backdrop?.classList.add('hidden');
       openIcon?.classList.remove('hidden');
       closeIcon?.classList.add('hidden');
 
@@ -183,6 +193,34 @@ const navItems = [
       link.addEventListener('click', () => {
         closeDrawer(true);
       });
+    });
+
+    // Close menu when backdrop is tapped/clicked
+    backdrop?.addEventListener('click', () => {
+      closeDrawer(true);
+    });
+
+    // Outside-click dismissal for clicks outside header and menu
+    document.addEventListener('click', (e: MouseEvent) => {
+      const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+      if (!isOpen) return;
+
+      const target = e.target as Node | null;
+      if (!target) return;
+
+      // Ignore clicks within toggle button or menu itself
+      if (toggleBtn.contains(target) || menu.contains(target)) {
+        return;
+      }
+
+      closeDrawer(true);
+    });
+
+    // Close mobile menu if window is resized to tablet/desktop breakpoint
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+      if (e.matches) {
+        closeDrawer(false);
+      }
     });
 
     // Keyboard handling: Escape to dismiss, Tab key focus trap
