@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-07T12:58:29.457Z",
+  "timestamp": "2026-10-07T15:02:39.269Z",
   "totalSuites": 7,
   "suitesPassed": 7,
   "suitesFailed": 0,
@@ -14,7 +14,7 @@
       "passed": 35,
       "failed": 0,
       "total": 35,
-      "durationMs": 48,
+      "durationMs": 37,
       "status": "PASS"
     },
     {
@@ -24,7 +24,7 @@
       "passed": 7,
       "failed": 0,
       "total": 7,
-      "durationMs": 12620,
+      "durationMs": 16920,
       "status": "PASS"
     },
     {
@@ -34,7 +34,7 @@
       "passed": 8,
       "failed": 0,
       "total": 8,
-      "durationMs": 14116,
+      "durationMs": 23749,
       "status": "PASS"
     },
     {
@@ -44,7 +44,7 @@
       "passed": 8,
       "failed": 0,
       "total": 8,
-      "durationMs": 14255,
+      "durationMs": 10902,
       "status": "PASS"
     },
     {
@@ -54,7 +54,7 @@
       "passed": 7,
       "failed": 0,
       "total": 7,
-      "durationMs": 1933,
+      "durationMs": 1055,
       "status": "PASS"
     },
     {
@@ -64,7 +64,7 @@
       "passed": 7,
       "failed": 0,
       "total": 7,
-      "durationMs": 2901,
+      "durationMs": 2607,
       "status": "PASS"
     },
     {
@@ -74,7 +74,7 @@
       "passed": 4,
       "failed": 0,
       "total": 4,
-      "durationMs": 11429,
+      "durationMs": 10377,
       "status": "PASS"
     }
   ]

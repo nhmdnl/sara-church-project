@@ -4,8 +4,8 @@
     "switchLangName": "አማርኛ",
     "switchLangHref": "/am",
     "meta": {
-      "title": "Felege Genet Sema'etu Kidus Giorgis Church | London",
-      "description": "Official website of Felege Genet Sema'etu Kidus Giorgis Ethiopian Orthodox Tewahedo Church in London. Find worship times, venue directions, and parish contact information."
+      "title": "Lideta Mariam & Felege Genet Semaetu Kidus Giorgis Church | London",
+      "description": "Official website of Lideta Mariam and Felege Genet Semaetu Kidus Giorgis Ethiopian Orthodox Tewahedo Church in London. Find worship times, venue directions, and parish contact information."
     },
     "nav": {
       "home": "Home",
@@ -21,8 +21,8 @@
     },
     "hero": {
       "welcome": "Welcome to",
-      "churchName": "Felege Genet Sema'etu Kidus Giorgis Church",
-      "dedication": "Dedicated to Saint Mary, the Virgin Mother of Jesus Christ, and Saint George the Martyr",
+      "churchName": "Lideta Mariam and Felege Genet Semaetu Kidus Giorgis Church",
+      "dedication": "Dedicated to Saint Mary (Lideta Mariam) and Saint George the Martyr (Semaetu Kidus Giorgis)",
       "tradition": "Ethiopian Orthodox Tewahedo Church · London, UK",
       "welcomeText": "A warm spiritual sanctuary rooted in ancient Christian tradition. Whether you are visiting for the first time or returning home, our doors and hearts are open to you.",
       "nextServiceBadge": "Next Service",
@@ -36,7 +36,7 @@
     "about": {
       "title": "About Our Parish",
       "subtitle": "Faith, heritage, and Christian community in the heart of London",
-      "body1": "Felege Genet Sema'etu Kidus Giorgis Church is a community of the Ethiopian Orthodox Tewahedo Church in London. Dedicated to the Holy Virgin Mary and Saint George the Martyr (Kidus Giorgis), our parish is devoted to preserving the deep liturgical, musical, and theological heritage of ancient Christian faith.",
+      "body1": "Lideta Mariam and Felege Genet Semaetu Kidus Giorgis Church is a community of the Ethiopian Orthodox Tewahedo Church in London. Dedicated to the Holy Virgin Mary (Lideta Mariam) and Saint George the Martyr (Semaetu Kidus Giorgis), our parish is devoted to preserving the deep liturgical, musical, and theological heritage of ancient Christian faith.",
       "body2": "Our congregation brings together elders, families, students, and young adults from across London. We gather weekly for the Divine Liturgy (Kidase), communal prayer, spiritual education, and fellowship. Visitors and seekers from all backgrounds are received with reverence and Christian hospitality."
     },
     "services": {
@@ -88,11 +88,11 @@
     },
     "footer": {
       "charityHeading": "Registered Charity Information",
-      "charityText": "Felege Genet Sema'etu Kidus Giorgis Church is a registered charity in England and Wales under Charities Act 2011 s.39.",
+      "charityText": "LIDETA MARIAM AND FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH is a registered charity in England and Wales under Charities Act 2011 s.39.",
       "quickLinks": "Quick Links",
       "privacyLink": "Privacy & Cookies",
       "accessibilityLink": "Accessibility Statement",
-      "copyright": "Felege Genet Sema'etu Kidus Giorgis Church. All rights reserved."
+      "copyright": "Lideta Mariam and Felege Genet Semaetu Kidus Giorgis Church. All rights reserved."
     }
   },
   "am": {
@@ -100,8 +100,8 @@
     "switchLangName": "English",
     "switchLangHref": "/",
     "meta": {
-      "title": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን | ለንደን",
-      "description": "የፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን በለንደን። የአገልግሎት ሰዓታት፣ አድራሻ እና የመገናኛ መረጃዎችን ያግኙ።"
+      "title": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን | ለንደን",
+      "description": "የልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን በለንደን። የአገልግሎት ሰዓታት፣ አድራሻ እና የመገናኛ መረጃዎችን ያግኙ።"
     },
     "nav": {
       "home": "መነሻ",
@@ -117,8 +117,8 @@
     },
     "hero": {
       "welcome": "እንኳን በደህና መጡ ወደ",
-      "churchName": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን",
-      "dedication": "ለእመቤታችን ቅድስት ድንግል ማርያም እና ለሰማዕቱ ቅዱስ ጊዮርጊስ የተሰየመ",
+      "churchName": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን",
+      "dedication": "ለእመቤታችን ቅድስት ድንግል ማርያም (ልደታ ማርያም) እና ለሰማዕቱ ቅዱስ ጊዮርጊስ የተሰየመ",
       "tradition": "የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን · ለንደን፣ ዩኬ",
       "welcomeText": "በጥንታዊቷ ሐዋርያዊት ክርስቲያናዊ እምነት ሥር የሰደደ መንፈሳዊ ማረፊያ። ለመጀመሪያ ጊዜ የሚመጡም ይሁኑ መደበኛ ምእመን፣ በሮቻችን እና ልቦቻችን ሁሌም ክፍት ናቸው።",
       "nextServiceBadge": "ቀጣይ አገልግሎት",
@@ -132,7 +132,7 @@
     "about": {
       "title": "ስለ ቤተ ክርስቲያናችን",
       "subtitle": "ሃይማኖት፣ ትውፊት እና ክርስቲያናዊ አንድነት በለንደን እምብርት",
-      "body1": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በለንደን የሚገኝ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን ማኅበር ነው። ለእመቤታችን ለቅድስት ድንግል ማርያም እና ለታላቁ ሰማዕት ለቅዱስ ጊዮርጊስ የተሰየመችው ቤተ ክርስቲያናችን፣ ለዘመናት ሲወርድ ሲዋረድ የመጣውን መንፈሳዊ፣ ሥርዓታዊ እና የቅዱስ ያሬድ ዜማ ትውፊት ጠብቃ ለማቆየት ትተጋለች።",
+      "body1": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በለንደን የሚገኝ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን ማኅበር ነው። ለእመቤታችን ለቅድስት ድንግል ማርያም (ልደታ ማርያም) እና ለታላቁ ሰማዕት ለቅዱስ ጊዮርጊስ የተሰየመችው ቤተ ክርስቲያናችን፣ ለዘመናት ሲወርድ ሲዋረድ የመጣውን መንፈሳዊ፣ ሥርዓታዊ እና የቅዱስ ያሬድ ዜማ ትውፊት ጠብቃ ለማቆየት ትተጋለች።",
       "body2": "ማኅበረሰባችን አረጋውያንን፣ ቤተሰቦችን፣ ወጣቶችን እና ተማሪዎችን ያቀፈ ነው። ዘወትር በሰንበት ቅዳሴ፣ በጸሎት፣ በቃለ እግዚአብሔር ትምህርት እና በፍቅር እንሰበሰባለን። ማንኛውም ክርስቲያን እና እውነትን ፈላጊ እንግዳ በክርስቶስ ፍቅር እና ክብር ይቀበላል።"
     },
     "services": {
@@ -184,11 +184,11 @@
     },
     "footer": {
       "charityHeading": "የበጎ አድራጎት ምዝገባ መረጃ",
-      "charityText": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በእንግሊዝ እና ዌልስ በበጎ አድራጎት ህግ 2011 አንቀጽ 39 መሠረት የተመዘገበ የበጎ አድራጎት ድርጅት ነው።",
+      "charityText": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን (LIDETA MARIAM AND FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH) በእንግሊዝ እና ዌልስ በበጎ አድራጎት ህግ 2011 አንቀጽ 39 መሠረት የተመዘገበ የበጎ አድራጎት ድርጅት ነው።",
       "quickLinks": "አቋራጭ አገናኞች",
       "privacyLink": "የግላዊነት ፖሊሲ እና ኩኪ",
       "accessibilityLink": "የተደራሽነት መግለጫ",
-      "copyright": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን። መብቱ በሕግ የተጠበቀ ነው።"
+      "copyright": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን። መብቱ በሕግ የተጠበቀ ነው።"
     }
   }
 }
