@@ -79,7 +79,7 @@ assert(enHtml.includes('"@type":"PlaceOfWorship"'), 'FIND-8: Schema.org PlaceOfW
 assert(enHtml.includes('href="tel:') && enHtml.includes('href="mailto:'), 'CONT-1: Tappable phone and email links present');
 assert(enHtml.includes('id="parish-contact-form"') && enHtml.includes('id="honeypot-website"'), 'CONT-2: Contact form with honeypot anti-spam present');
 
-assert(enHtml.includes('Charities Act 2011 s.39'), 'LEGAL-1: Registered charity declaration present in footer');
+assert(enHtml.includes('1217660') && enHtml.includes('Charities Act 2011'), 'LEGAL-1: Registered charity declaration and number 1217660 present in footer');
 assert(privacyHtml.includes('Privacy Notice') && amPrivacyHtml.includes('የግላዊነት ፖሊሲ'), 'LEGAL-2/3: Privacy & cookie notices present in both languages');
 assert(accessibilityHtml.includes('WCAG 2.2') && amAccessibilityHtml.includes('WCAG 2.2'), 'LEGAL-4: Accessibility statement present in both languages');
 assert(robots.includes('Sitemap:') && sitemap.includes('https://felegegenet.org.uk/'), 'SEO-1: robots.txt and sitemap.xml valid');

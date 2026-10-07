@@ -30,6 +30,8 @@ const schemaOrgData = {
   '@context': 'https://schema.org',
   '@type': 'PlaceOfWorship',
   'name': church.name,
+  'legalName': church.charity.name,
+  'identifier': church.charity.number,
   'alternateName': church.shortName,
   'description': pageDescription,
   'url': canonicalUrl,

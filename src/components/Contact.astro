@@ -80,6 +80,19 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
 
           </div>
 
+          <!-- Official Registered Office Address -->
+          <div class="pt-4 border-t border-church-border/60 space-y-1">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-church-gold-dark">
+              {lang === 'am' ? 'የተመዘገበ የቢሮ አድራሻ (Registered Office)' : 'Registered Charity Office'}
+            </h4>
+            <p class="text-sm text-church-charcoal font-medium">
+              {church.charity.registeredOffice.line1}, {church.charity.registeredOffice.line2}, {church.charity.registeredOffice.city} {church.charity.registeredOffice.postcode}
+            </p>
+            <p class="text-xs text-church-muted">
+              {lang === 'am' ? 'የበጎ አድራጎት ቁጥር፡' : 'Charity Commission Registration No:'} <strong>{church.charity.number}</strong>
+            </p>
+          </div>
+
           <!-- Official Social Channels (CONT-3) -->
           <div class="pt-4 border-t border-church-border/60">
             <h4 class="text-xs font-bold uppercase tracking-wider text-church-muted mb-2">

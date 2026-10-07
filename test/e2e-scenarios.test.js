@@ -121,8 +121,8 @@ test('Tier 4: Comprehensive Real-World E2E Scenarios Suite', async (t) => {
         return footer?.textContent || '';
       });
       assert.ok(
-        charityStatement.includes('Charities Act 2011 s.39') || charityStatement.includes('Felege Genet Sema'),
-        'Footer must declare registered charity status per Charities Act 2011 s.39'
+        charityStatement.includes('1217660') || charityStatement.includes('Charities Act 2011'),
+        'Footer must declare registered charity status per Charities Act 2011 with Charity Number 1217660'
       );
 
       // 2. Navigate to Privacy Notice

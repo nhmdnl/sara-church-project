@@ -18,8 +18,18 @@ export function getChurch(lang: Locale) {
     dedication: churchData.dedication[lang],
     charity: {
       name: churchData.charity.name,
+      previousName: churchData.charity.previousName,
       number: churchData.charity.number,
+      type: churchData.charity.type,
+      registrationDate: churchData.charity.registrationDate,
       statement: churchData.charity.statement[lang],
+      registeredOffice: churchData.charity.registeredOffice,
+      trustees: churchData.charity.trustees.map((t) => ({
+        name: lang === 'am' ? t.nameAm : t.name,
+        role: lang === 'am' ? t.roleAm : t.role,
+        appointed: t.appointed,
+      })),
+      activities: churchData.charity.activities[lang],
     },
     contact: {
       phone: churchData.contact.phone,
@@ -27,7 +37,6 @@ export function getChurch(lang: Locale) {
       email: churchData.contact.email,
       officeHours: churchData.contact.officeHours[lang],
     },
-    social: churchData.social,
   };
 }
 

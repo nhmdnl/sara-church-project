@@ -47,16 +47,26 @@ const accessibilityUrl = getLocalizedUrl('/accessibility', lang);
         </p>
 
         <!-- Mandatory UK Charity Disclosure (LEGAL-1, Charities Act 2011 s.39) -->
-        <div class="bg-black/40 rounded-xl p-4 border border-church-gold/30 space-y-1">
-          <p class="text-sm font-semibold text-church-gold-light">
-            {dict.footer.charityHeading}
-          </p>
+        <div class="bg-black/40 rounded-xl p-4 border border-church-gold/30 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <p class="text-sm font-semibold text-church-gold-light">
+              {dict.footer.charityHeading}
+            </p>
+            <span class="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded bg-church-gold/20 text-church-gold-light border border-church-gold/40">
+              {lang === 'am' ? 'የተመዘገበ በጎ አድራጎት' : 'Registered Charity'} #{church.charity.number}
+            </span>
+          </div>
           <p class="text-sm text-stone-200 leading-relaxed">
             {church.charity.statement}
           </p>
-          <p class="text-xs text-stone-300">
-            Charity Name: <strong class="text-white">{church.charity.name}</strong>
-          </p>
+          <div class="text-xs text-stone-300 space-y-0.5 pt-1 border-t border-stone-700/60">
+            <p>
+              {lang === 'am' ? 'ይፋዊ የበጎ አድራጎት ስም፦' : 'Official Charity Name:'} <strong class="text-white">{church.charity.name}</strong>
+            </p>
+            <p>
+              {lang === 'am' ? 'የተመዘገበ የቢሮ አድራሻ፦' : 'Registered Office:'} {church.charity.registeredOffice.line1}, {church.charity.registeredOffice.line2}, {church.charity.registeredOffice.city} {church.charity.registeredOffice.postcode}
+            </p>
+          </div>
         </div>
       </div>
 

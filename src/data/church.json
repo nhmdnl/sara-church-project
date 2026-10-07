@@ -1,5 +1,5 @@
 {
-  "verified": false,
+  "verified": true,
   "name": {
     "en": "Lideta Mariam and Felege Genet Semaetu Kidus Giorgis Church",
     "am": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን"
@@ -18,15 +18,53 @@
   },
   "charity": {
     "name": "LIDETA MARIAM AND FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH",
+    "previousName": "FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH",
+    "number": "1217660",
+    "type": "CIO (Charitable Incorporated Organisation)",
+    "registrationDate": "16 April 2026",
     "statement": {
-      "en": "LIDETA MARIAM AND FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH is a registered charity in England and Wales.",
-      "am": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በእንግሊዝ እና ዌልስ የተመዘገበ የበጎ አድራጎት ድርጅት ነው።"
+      "en": "LIDETA MARIAM AND FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH is a registered charity in England and Wales under Charities Act 2011 s.39 (Charity Registration No. 1217660 · CIO).",
+      "am": "ልደታ ማርያም እና ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን (LIDETA MARIAM AND FELEGE GENET SEMAETU KIDUS GIORGIS CHURCH) በእንግሊዝ እና ዌልስ በበጎ አድራጎት ህግ 2011 አንቀጽ 39 መሠረት የተመዘገበ የበጎ አድራጎት ድርጅት ነው (የምዝገባ ቁጥር፡ 1217660)።"
+    },
+    "registeredOffice": {
+      "line1": "Flat 12, Marsh House",
+      "line2": "Thessaly Road",
+      "city": "London",
+      "postcode": "SW8 4HB",
+      "country": "United Kingdom"
+    },
+    "trustees": [
+      {
+        "name": "Priest Adane Yemataw",
+        "nameAm": "ቀሲስ አዳነ የማታው",
+        "role": "Chair",
+        "roleAm": "ሰብሳቢ",
+        "appointed": "07 November 2025"
+      },
+      {
+        "name": "Sara Negash Kidane",
+        "nameAm": "ሳራ ነጋሽ ኪዳኔ",
+        "role": "Trustee",
+        "roleAm": "አስተዳዳሪ (Trustee)",
+        "appointed": "07 November 2025"
+      },
+      {
+        "name": "Genet Regassa Began",
+        "nameAm": "ገነት ረጋሳ በጋን",
+        "role": "Trustee",
+        "roleAm": "አስተዳዳሪ (Trustee)",
+        "appointed": "11 July 2025"
+      }
+    ],
+    "activities": {
+      "en": "Promoting the advancement of religion supporting the Orthodox Tewahedo Church community providing religious service, cultural education, and community support.",
+      "am": "የኦርቶዶክስ ተዋሕዶ እምነትን ማስተማር እና ማጠናከር፣ ሃይማኖታዊ አገልግሎት፣ የባህልና ቋንቋ ትምህርት፣ እና የማኅበረሰብ ድጋፍ ማበርከት።"
     }
   },
   "contact": {
-    "phone": "+44 20 7946 0192",
-    "phoneDisplay": "020 7946 0192",
-    "email": "contact@felegegenet.org.uk",
+    "phone": "+447701332356",
+    "phoneDisplay": "07701 332356",
+    "email": "felegegenetkidusgiorgis@gmail.com",
     "officeHours": {
       "en": "Sunday: 07:00 – 14:00 | Saturday: 16:00 – 20:00",
       "am": "እሑድ፡ 7:00 – 14:00 | ቅዳሜ፡ 16:00 – 20:00"
