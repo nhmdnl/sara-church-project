@@ -144,13 +144,13 @@ test('R3: Interactive Flow & Privacy QA Suite', async (t) => {
     const googleHref = googleDirLink.getAttribute('href');
     const appleHref = appleDirLink.getAttribute('href');
 
-    // Expected coordinates: 51.4882, -0.1378
+    // Expected coordinates: 51.4764, -0.1382
     assert.ok(
-      googleHref.includes('51.4882') && googleHref.includes('-0.1378'),
-      `Google Maps URL must contain venue latitude (51.4882) and longitude (-0.1378). Got: ${googleHref}`
+      googleHref.includes('51.4764') && googleHref.includes('-0.1382'),
+      `Google Maps URL must contain venue latitude (51.4764) and longitude (-0.1382). Got: ${googleHref}`
     );
     assert.ok(
-      appleHref.includes('51.4882') && appleHref.includes('-0.1378'),
+      appleHref.includes('51.4764') && appleHref.includes('-0.1382'),
       `Apple Maps URL must contain venue coordinates. Got: ${appleHref}`
     );
   });

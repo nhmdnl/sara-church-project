@@ -72,8 +72,8 @@ assert(enHtml.includes('load-interactive-map-btn'), 'FIND-2: On-demand interacti
 assert(enHtml.includes('maps/dir/?api=1'), 'FIND-3: Get directions link opens maps provider');
 assert(enHtml.includes('tfl.gov.uk/plan-a-journey/'), 'FIND-4: TfL Journey Planner link present');
 assert(enHtml.includes('Step-free') && enHtml.includes('Blue Badge'), 'FIND-5: Step-free access and parking details present');
-assert(enHtml.includes('courtyard entrance'), 'FIND-6: Host entrance guidance present');
-assert(enHtml.includes('What to Expect on Your First Visit'), 'FIND-7: First visit guide present');
+assert(enHtml.includes('Marsh House') && enHtml.includes('entrance'), 'FIND-6: Host entrance guidance present');
+assert(!enHtml.includes('What to Expect on Your First Visit'), 'FIND-7: First visit guide omitted per instruction');
 assert(enHtml.includes('"@type":"PlaceOfWorship"'), 'FIND-8: Schema.org PlaceOfWorship JSON-LD embedded');
 
 assert(enHtml.includes('href="tel:') && enHtml.includes('href="mailto:'), 'CONT-1: Tappable phone and email links present');

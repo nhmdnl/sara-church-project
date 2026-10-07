@@ -294,37 +294,6 @@ const venue = getVenue(lang);
       </div>
     </div>
 
-    <!-- "What to Expect on Your First Visit" (FIND-7) -->
-    <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-red-200 shadow-xs space-y-6">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div class="space-y-1">
-          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-church-burgundy">
-            {dict.findUs.firstVisitTitle}
-          </h3>
-          <p class="text-base sm:text-lg text-church-muted">
-            {lang === 'am' ? 'ለመጀመሪያ ጊዜ ለሚመጡ እንግዶች እና ምእመናን አጠቃላይ መመሪያ' : 'Guidance for first-time visitors, families, and guests attending our worship services.'}
-          </p>
-        </div>
-        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-red-900 bg-red-100 px-3 py-1 rounded-full border border-red-300">
-          <Icons name="alert" className="w-3.5 h-3.5 text-red-700" />
-          <span>{lang === 'am' ? 'ጊዜያዊ መመሪያ (Placeholder)' : 'Draft Guidelines (Placeholder)'}</span>
-        </span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-        {venue.firstVisitGuide.map((item) => (
-          <div class="bg-church-cream/50 p-5 rounded-xl border border-church-border/60 space-y-2">
-            <h4 class="font-bold text-church-burgundy text-lg">
-              {item.title}
-            </h4>
-            <p class="text-church-charcoal text-sm sm:text-base leading-relaxed">
-              {item.detail}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -382,14 +351,14 @@ const venue = getVenue(lang);
 
   if (loadMapBtn && staticMapView && interactiveMapFrame) {
     loadMapBtn.addEventListener('click', () => {
-      // Coordinates: Pimlico / London (51.4882, -0.1378)
-      const lat = 51.4882;
-      const lon = -0.1378;
+      // Coordinates: London SW8 4HB (51.4764, -0.1382)
+      const lat = 51.4764;
+      const lon = -0.1382;
       const osmIframeUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${lon - 0.005}%2C${lat - 0.003}%2C${lon + 0.005}%2C${lat + 0.003}&layer=mapnik&marker=${lat}%2C${lon}`;
 
       const iframe = document.createElement('iframe');
       iframe.src = osmIframeUrl;
-      iframe.title = 'Felege Genet Church Location Map';
+      iframe.title = 'Lideta Mariam and Felege Genet Church Location Map';
       iframe.className = 'w-full h-full border-0';
       iframe.loading = 'lazy';
       iframe.setAttribute('aria-label', 'Interactive map showing church venue');

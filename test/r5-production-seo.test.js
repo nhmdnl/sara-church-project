@@ -91,14 +91,14 @@ test('R5: Production Build & Discoverability Audit Suite', async (t) => {
       const addr = placeOfWorship.address;
       assert.ok(addr && addr['@type'] === 'PostalAddress', 'Address must have @type PostalAddress');
       assert.ok(addr.streetAddress, 'Address must include streetAddress');
-      assert.strictEqual(addr.postalCode, 'SW1V 3EN', 'Address postcode must be SW1V 3EN');
+      assert.strictEqual(addr.postalCode, 'SW8 4HB', 'Address postcode must be SW8 4HB');
       assert.strictEqual(addr.addressCountry, 'GB', 'Country code must be GB');
 
       // Verify GeoCoordinates
       const geo = placeOfWorship.geo;
       assert.ok(geo && geo['@type'] === 'GeoCoordinates', 'Geo must have @type GeoCoordinates');
-      assert.strictEqual(geo.latitude, 51.4882, 'Latitude must be 51.4882');
-      assert.strictEqual(geo.longitude, -0.1378, 'Longitude must be -0.1378');
+      assert.strictEqual(geo.latitude, 51.4764, 'Latitude must be 51.4764');
+      assert.strictEqual(geo.longitude, -0.1382, 'Longitude must be -0.1382');
 
       // Verify opening hours
       assert.ok(

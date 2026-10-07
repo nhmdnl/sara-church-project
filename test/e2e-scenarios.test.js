@@ -70,17 +70,13 @@ test('Tier 4: Comprehensive Real-World E2E Scenarios Suite', async (t) => {
       // 1. Click "Get Directions" in hero
       const directionsUrl = await page.getAttribute('section a[href*="maps/dir/?api=1"]', 'href');
       assert.ok(
-        directionsUrl && directionsUrl.includes('51.4882'),
+        directionsUrl && directionsUrl.includes('51.4764'),
         'Directions link in hero must direct visitor to correct church venue'
       );
 
-      // 2. Read "What to Expect on Your First Visit"
-      const visitorTopics = await page.evaluate(() => {
-        const guide = document.querySelector('#find-us');
-        const items = guide?.querySelectorAll('.lg\\:grid-cols-3 > div');
-        return Array.from(items || []).map((i) => i.querySelector('h4')?.textContent?.trim());
-      });
-      assert.ok(visitorTopics.length >= 4, `Must present comprehensive first visit guidance (found ${visitorTopics.length} topics)`);
+      // 2. Verify venue address
+      const addressContent = await page.textContent('#venue-address-text');
+      assert.ok(addressContent && addressContent.includes('SW8 4HB'), 'Venue address must show updated SW8 4HB postcode');
 
       // 3. Inspect public transport guidance
       const transportVisible = await page.evaluate(() => {

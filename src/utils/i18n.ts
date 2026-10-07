@@ -95,38 +95,6 @@ export function getVenue(lang: Locale) {
       toilets: venueData.accessibility.toilets[lang],
       parking: venueData.accessibility.parking[lang],
     },
-    firstVisitGuide: [
-      {
-        key: 'language',
-        title: venueData.firstVisitGuide.language.title[lang],
-        detail: venueData.firstVisitGuide.language.detail[lang],
-      },
-      {
-        key: 'length',
-        title: venueData.firstVisitGuide.length.title[lang],
-        detail: venueData.firstVisitGuide.length.detail[lang],
-      },
-      {
-        key: 'dress',
-        title: venueData.firstVisitGuide.dress.title[lang],
-        detail: venueData.firstVisitGuide.dress.detail[lang],
-      },
-      {
-        key: 'children',
-        title: venueData.firstVisitGuide.children.title[lang],
-        detail: venueData.firstVisitGuide.children.detail[lang],
-      },
-      {
-        key: 'photography',
-        title: venueData.firstVisitGuide.photography.title[lang],
-        detail: venueData.firstVisitGuide.photography.detail[lang],
-      },
-      {
-        key: 'communion',
-        title: venueData.firstVisitGuide.communion.title[lang],
-        detail: venueData.firstVisitGuide.communion.detail[lang],
-      },
-    ],
   };
 }
 
