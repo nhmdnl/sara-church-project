@@ -86,7 +86,13 @@ const nextService = getNextScheduledService();
           </div>
 
           <!-- Dynamic Service Time Highlight (TIME-3) -->
-          <div class="space-y-1">
+          <div class="space-y-1 p-3 rounded-xl bg-red-50/60 border border-red-300 relative">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-900 border border-red-300">
+                <Icons name="alert" className="w-3 h-3 text-red-700" />
+                <span>{lang === 'am' ? 'የሙከራ ሰዓት (Placeholder)' : 'Provisional Schedule (Placeholder)'}</span>
+              </span>
+            </div>
             <h2 class="text-2xl sm:text-3xl font-serif font-bold text-church-burgundy">
               {lang === 'am' ? nextService.titleAm : nextService.titleEn}
             </h2>
@@ -96,7 +102,13 @@ const nextService = getNextScheduledService();
           </div>
 
           <!-- Short Venue Location (HOME-2) -->
-          <div class="bg-church-cream rounded-xl p-4 border border-church-border space-y-2">
+          <div class="bg-red-50/60 rounded-xl p-4 border border-red-300 space-y-2 relative">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-900 border border-red-300">
+                <Icons name="alert" className="w-3 h-3 text-red-700" />
+                <span>{lang === 'am' ? 'ጊዜያዊ አድራሻ (Placeholder)' : 'Provisional Venue (Placeholder)'}</span>
+              </span>
+            </div>
             <div class="flex items-start gap-3">
               <div class="text-church-burgundy shrink-0 mt-0.5">
                 <Icons name="mappin" className="w-6 h-6 text-church-burgundy" />

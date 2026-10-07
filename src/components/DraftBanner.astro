@@ -10,24 +10,24 @@ const { lang } = Astro.props;
 ---
 
 <aside
-  class="bg-amber-100 border-b-2 border-amber-400 text-amber-950 px-4 py-2.5 sm:px-6 shadow-xs relative z-50 print:border-amber-600"
+  class="bg-red-50 border-b-2 border-red-500 text-red-950 px-4 py-3 sm:px-6 shadow-sm relative z-50 print:border-red-600"
   role="alert"
-  aria-label={lang === 'am' ? 'የረቂቅ ሰሌዳ ማስታወሻ' : 'Draft for Trustee Review Notice'}
+  aria-label={lang === 'am' ? 'የቅድመ-እይታ ሰሌዳ ማስታወሻ' : 'Development Preview Notice'}
 >
   <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 text-sm sm:text-base">
-    <div class="flex items-center gap-2.5">
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-800 text-white font-extrabold text-xs uppercase tracking-wider shrink-0">
+    <div class="flex items-start sm:items-center gap-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shrink-0 shadow-xs">
         <Icons name="alert" className="w-3.5 h-3.5" />
-        <span>{lang === 'am' ? 'ረቂቅ' : 'DRAFT'}</span>
+        <span>{lang === 'am' ? 'ቅድመ-እይታ' : 'PREVIEW'}</span>
       </span>
-      <p class="font-medium text-amber-950 leading-snug">
+      <p class="font-medium text-red-950 leading-snug">
         {lang === 'am' ? (
           <>
-            <strong>ለአስተዳዳሪዎች ግምገማ የቀረበ ረቂቅ፡</strong> በዚህ ገጽ ላይ የተገለጹት የቦታ አድራሻ፣ የአገልግሎት ሰዓታት እና የተደራሽነት መረጃዎች በካህናት እና በቦርዱ ይፋዊ ማረጋገጫ የሚሹ ጊዜያዊ ናሙናዎች ናቸው።
+            <strong>የድረ-ገጽ ቅድመ-እይታ (Preview):</strong> ይህ ገጽ ወደፊት የሚኖረውን ይዘትና ገጽታ የሚያሳይ የሙከራ ቅድመ-እይታ ነው። ያልተረጋገጡ ጊዜያዊ መረጃዎች (የቦታ አድራሻ፣ የአገልግሎት ሰዓታት እና የተደራሽነት መረጃዎች) ይፋዊ ማረጋገጫ የሚሹ በመሆናቸው <span class="inline-block px-1.5 py-0.2 bg-red-200 text-red-900 border border-red-400 rounded font-bold">በቀይ ቀለም ተለይተው (red highlight)</span> ተቀምጠዋል።
           </>
         ) : (
           <>
-            <strong>Draft for Trustee &amp; Clergy Review:</strong> Venue address, service times, and accessibility/parking claims are unverified placeholders awaiting formal written sign-off.
+            <strong>Development Preview:</strong> This is a preview of what the page is supposed to be. Unverified provisional details (venue address, service schedule, accessibility &amp; parking) are placeholders awaiting formal clergy/trustee sign-off, highlighted with a <span class="inline-block px-1.5 py-0.2 bg-red-200 text-red-900 border border-red-400 rounded font-bold">red highlight</span>.
           </>
         )}
       </p>

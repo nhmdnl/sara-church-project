@@ -30,9 +30,15 @@ const venue = getVenue(lang);
       <!-- Address & Directions Column (FIND-1, FIND-3, FIND-6) -->
       <div class="lg:col-span-5 space-y-6">
         
-        <div class="bg-church-cream rounded-2xl p-6 sm:p-8 border border-church-border shadow-xs space-y-6">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-red-300 shadow-xs space-y-6 relative">
           
           <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-bold bg-red-100 text-red-900 border border-red-300">
+                <Icons name="alert" className="w-3.5 h-3.5 text-red-700" />
+                <span>{lang === 'am' ? 'ያልተረጋገጠ አድራሻ (Placeholder)' : 'Provisional Host Venue (Placeholder)'}</span>
+              </span>
+            </div>
             <span class="text-xs uppercase font-bold text-church-gold-dark tracking-wider">
               {dict.findUs.venueDetails}
             </span>
@@ -170,10 +176,16 @@ const venue = getVenue(lang);
         </div>
 
         <!-- Public Transport Guidance (FIND-4) -->
-        <div class="mt-6 bg-white rounded-2xl p-6 sm:p-8 border border-church-border shadow-xs space-y-6">
-          <h3 class="font-serif text-2xl font-bold text-church-burgundy">
-            {dict.findUs.publicTransportTitle}
-          </h3>
+        <div class="mt-6 bg-white rounded-2xl p-6 sm:p-8 border-2 border-red-200 shadow-xs space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h3 class="font-serif text-2xl font-bold text-church-burgundy">
+              {dict.findUs.publicTransportTitle}
+            </h3>
+            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-red-900 bg-red-100 px-3 py-1 rounded-full border border-red-300">
+              <Icons name="alert" className="w-3.5 h-3.5 text-red-700" />
+              <span>{lang === 'am' ? 'ጊዜያዊ የትራንስፖርት መረጃ' : 'Provisional Routes (Placeholder)'}</span>
+            </span>
+          </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             
@@ -232,19 +244,20 @@ const venue = getVenue(lang);
     </div>
 
     <!-- Parking & Accessibility Details (FIND-5) -->
-    <div class="bg-church-cream-alt/50 rounded-2xl p-6 sm:p-8 border border-church-border space-y-6">
+    <div class="bg-red-50/30 rounded-2xl p-6 sm:p-8 border-2 border-red-300 space-y-6">
       <div class="flex flex-wrap items-center justify-between gap-3">
         <h3 class="font-serif text-2xl font-bold text-church-burgundy">
           {dict.findUs.accessTitle}
         </h3>
-        <span class="text-xs sm:text-sm font-semibold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
-          {lang === 'am' ? 'ጊዜያዊ ረቂቅ መረጃ — ማረጋገጫ ይጠብቃል' : 'Provisional Draft — Awaiting Host Sign-off'}
+        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-red-900 bg-red-100 px-3 py-1 rounded-full border-2 border-red-400">
+          <Icons name="alert" className="w-3.5 h-3.5 text-red-700" />
+          <span>{lang === 'am' ? 'ጊዜያዊ ረቂቅ መረጃ — ማረጋገጫ ይጠብቃል' : 'Provisional Draft — Awaiting Host Sign-off'}</span>
         </span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-5 rounded-xl border border-church-border/70 space-y-2">
-          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold">
+        <div class="bg-white p-5 rounded-xl border-2 border-red-200 space-y-2">
+          <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-church-burgundy font-bold">
             <Icons name="wheelchair" className="w-6 h-6 text-church-burgundy" />
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
@@ -255,8 +268,8 @@ const venue = getVenue(lang);
           </p>
         </div>
 
-        <div class="bg-white p-5 rounded-xl border border-church-border/70 space-y-2">
-          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold">
+        <div class="bg-white p-5 rounded-xl border-2 border-red-200 space-y-2">
+          <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-church-burgundy font-bold">
             <Icons name="restroom" className="w-6 h-6 text-church-burgundy" />
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
@@ -267,8 +280,8 @@ const venue = getVenue(lang);
           </p>
         </div>
 
-        <div class="bg-white p-5 rounded-xl border border-church-border/70 space-y-2">
-          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold">
+        <div class="bg-white p-5 rounded-xl border-2 border-red-200 space-y-2">
+          <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-church-burgundy font-bold">
             <Icons name="parking" className="w-6 h-6 text-church-burgundy" />
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
@@ -282,14 +295,20 @@ const venue = getVenue(lang);
     </div>
 
     <!-- "What to Expect on Your First Visit" (FIND-7) -->
-    <div class="bg-white rounded-2xl p-6 sm:p-8 border border-church-border shadow-xs space-y-6">
-      <div class="space-y-2">
-        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-church-burgundy">
-          {dict.findUs.firstVisitTitle}
-        </h3>
-        <p class="text-base sm:text-lg text-church-muted">
-          {lang === 'am' ? 'ለመጀመሪያ ጊዜ ለሚመጡ እንግዶች እና ምእመናን አጠቃላይ መመሪያ' : 'Guidance for first-time visitors, families, and guests attending our worship services.'}
-        </p>
+    <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-red-200 shadow-xs space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="space-y-1">
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-church-burgundy">
+            {dict.findUs.firstVisitTitle}
+          </h3>
+          <p class="text-base sm:text-lg text-church-muted">
+            {lang === 'am' ? 'ለመጀመሪያ ጊዜ ለሚመጡ እንግዶች እና ምእመናን አጠቃላይ መመሪያ' : 'Guidance for first-time visitors, families, and guests attending our worship services.'}
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-red-900 bg-red-100 px-3 py-1 rounded-full border border-red-300">
+          <Icons name="alert" className="w-3.5 h-3.5 text-red-700" />
+          <span>{lang === 'am' ? 'ጊዜያዊ መመሪያ (Placeholder)' : 'Draft Guidelines (Placeholder)'}</span>
+        </span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
