@@ -1,0 +1,36 @@
+---
+import { type Locale } from '../utils/i18n';
+import Icons from './Icons.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<aside
+  class="bg-amber-100 border-b-2 border-amber-400 text-amber-950 px-4 py-2.5 sm:px-6 shadow-xs relative z-50 print:border-amber-600"
+  role="alert"
+  aria-label={lang === 'am' ? 'የረቂቅ ሰሌዳ ማስታወሻ' : 'Draft for Trustee Review Notice'}
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 text-sm sm:text-base">
+    <div class="flex items-center gap-2.5">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-800 text-white font-extrabold text-xs uppercase tracking-wider shrink-0">
+        <Icons name="alert" className="w-3.5 h-3.5" />
+        <span>{lang === 'am' ? 'ረቂቅ' : 'DRAFT'}</span>
+      </span>
+      <p class="font-medium text-amber-950 leading-snug">
+        {lang === 'am' ? (
+          <>
+            <strong>ለአስተዳዳሪዎች ግምገማ የቀረበ ረቂቅ፡</strong> በዚህ ገጽ ላይ የተገለጹት የቦታ አድራሻ፣ የአገልግሎት ሰዓታት እና የተደራሽነት መረጃዎች በካህናት እና በቦርዱ ይፋዊ ማረጋገጫ የሚሹ ጊዜያዊ ናሙናዎች ናቸው።
+          </>
+        ) : (
+          <>
+            <strong>Draft for Trustee &amp; Clergy Review:</strong> Venue address, service times, and accessibility/parking claims are unverified placeholders awaiting formal written sign-off.
+          </>
+        )}
+      </p>
+    </div>
+  </div>
+</aside>

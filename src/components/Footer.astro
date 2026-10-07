@@ -1,6 +1,7 @@
 ---
 import ChurchEmblem from './ChurchEmblem.astro';
-import { getDictionary, getChurch, type Locale, getLocalizedUrl } from '../utils/i18n';
+import Icons from './Icons.astro';
+import { getDictionary, getChurch, getVenue, type Locale, getLocalizedUrl } from '../utils/i18n';
 
 interface Props {
   lang: Locale;
@@ -9,11 +10,12 @@ interface Props {
 const { lang } = Astro.props;
 const dict = getDictionary(lang);
 const church = getChurch(lang);
+const venue = getVenue(lang);
 const privacyUrl = getLocalizedUrl('/privacy', lang);
 const accessibilityUrl = getLocalizedUrl('/accessibility', lang);
 ---
 
-<footer class="bg-church-burgundy-dark text-white pt-12 pb-16 border-t-4 border-church-gold">
+<footer class="bg-church-burgundy-dark text-white pt-12 pb-16 border-t-4 border-church-gold print:border-church-gold">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
     
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
@@ -38,16 +40,22 @@ const accessibilityUrl = getLocalizedUrl('/accessibility', lang);
           {church.dedication}
         </p>
 
+        <!-- Worship Venue Address in Footer -->
+        <p class="text-xs sm:text-sm text-stone-300 leading-relaxed flex items-center gap-2">
+          <Icons name="mappin" className="w-4 h-4 text-church-gold shrink-0" />
+          <span>{venue.name} — {venue.fullAddressString}</span>
+        </p>
+
         <!-- Mandatory UK Charity Disclosure (LEGAL-1, Charities Act 2011 s.39) -->
-        <div class="bg-black/30 rounded-xl p-4 border border-church-gold/30 space-y-1">
+        <div class="bg-black/40 rounded-xl p-4 border border-church-gold/30 space-y-1">
           <p class="text-sm font-semibold text-church-gold-light">
-            🏛 {dict.footer.charityHeading}
+            {dict.footer.charityHeading}
           </p>
           <p class="text-sm text-stone-200 leading-relaxed">
             {church.charity.statement}
           </p>
-          <p class="text-xs text-stone-400">
-            Registered Charity Name: <strong class="text-white">{church.charity.name}</strong> | Charity Registration No: <strong class="text-church-gold-light">{church.charity.number}</strong>
+          <p class="text-xs text-stone-300">
+            Charity Name: <strong class="text-white">{church.charity.name}</strong>
           </p>
         </div>
       </div>
@@ -59,27 +67,27 @@ const accessibilityUrl = getLocalizedUrl('/accessibility', lang);
         </h4>
         <ul class="space-y-2 text-base">
           <li>
-            <a href={privacyUrl} class="text-stone-300 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
+            <a href={privacyUrl} class="text-stone-200 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
               {dict.footer.privacyLink}
             </a>
           </li>
           <li>
-            <a href={accessibilityUrl} class="text-stone-300 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
+            <a href={accessibilityUrl} class="text-stone-200 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
               {dict.footer.accessibilityLink}
             </a>
           </li>
           <li>
-            <a href={`${getLocalizedUrl('/', lang)}#about`} class="text-stone-300 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
+            <a href={`${getLocalizedUrl('/', lang)}#about`} class="text-stone-200 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
               {dict.nav.about}
             </a>
           </li>
           <li>
-            <a href={`${getLocalizedUrl('/', lang)}#services`} class="text-stone-300 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
+            <a href={`${getLocalizedUrl('/', lang)}#services`} class="text-stone-200 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
               {dict.nav.services}
             </a>
           </li>
           <li>
-            <a href={`${getLocalizedUrl('/', lang)}#find-us`} class="text-stone-300 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
+            <a href={`${getLocalizedUrl('/', lang)}#find-us`} class="text-stone-200 hover:text-white underline-offset-4 hover:underline transition-colors touch-target">
               {dict.nav.findUs}
             </a>
           </li>
@@ -89,12 +97,12 @@ const accessibilityUrl = getLocalizedUrl('/accessibility', lang);
     </div>
 
     <!-- Bottom Copyright Bar -->
-    <div class="pt-6 border-t border-stone-700/60 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm text-stone-400">
+    <div class="pt-6 border-t border-stone-700/60 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm text-stone-300">
       <p>
         © {new Date().getFullYear()} {dict.footer.copyright}
       </p>
       <p>
-        Built to WCAG 2.2 AA accessibility standards.
+        We aim to meet WCAG 2.2 AA standards.
       </p>
     </div>
 

@@ -64,15 +64,14 @@ const navItems = [
           </a>
         ))}
 
-        <!-- Visible Language Switch (LANG-2) -->
+        <!-- Visible Language Switch (LANG-2: Text-only, no country flags) -->
         <div class="ml-2 pl-3 border-l border-church-border flex items-center">
           <a
             href={switchUrl}
-            class="touch-target px-3 py-1.5 rounded-full border border-church-gold bg-church-cream hover:bg-church-gold hover:text-white text-church-gold-dark font-bold text-base transition-colors flex items-center gap-1.5 shadow-xs"
+            class="touch-target px-3 py-1.5 rounded-full border border-church-gold bg-church-cream hover:bg-church-gold hover:text-white text-church-burgundy font-bold text-base transition-colors flex items-center gap-1.5 shadow-xs"
             aria-label={`Switch language to ${switchLangLabel}`}
             hreflang={targetLang}
           >
-            <span class="text-sm uppercase tracking-wider" aria-hidden="true">{targetLang === 'am' ? '🇪🇹' : '🇬🇧'}</span>
             <span>{switchLangLabel}</span>
           </a>
         </div>

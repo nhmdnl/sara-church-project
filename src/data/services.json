@@ -1,12 +1,13 @@
 {
+  "verified": false,
   "nextService": {
     "day": {
       "en": "Sunday",
       "am": "እሑድ"
     },
     "time": {
-      "en": "07:30 – 11:30 AM",
-      "am": "ከጠዋቱ 1፡30 – 5፡30"
+      "en": "07:30 – 11:30",
+      "am": "07:30 – 11:30"
     },
     "title": {
       "en": "Sunday Divine Liturgy (Kidase)",
@@ -25,8 +26,8 @@
         "am": "ዘወትር እሑድ"
       },
       "time": {
-        "en": "07:30 – 11:30 UK Time",
-        "am": "1:30 – 5:30 (የዩናይትድ ኪንግደም ሰዓት)"
+        "en": "07:30 – 11:30",
+        "am": "07:30 – 11:30"
       },
       "description": {
         "en": "Morning prayers, Divine Liturgy followed by spiritual teachings and community fellowship.",
@@ -44,8 +45,8 @@
         "am": "ዘወትር ቅዳሜ"
       },
       "time": {
-        "en": "17:00 – 19:30 UK Time",
-        "am": "11:00 – 1:30 ምሽት"
+        "en": "17:00 – 19:30",
+        "am": "17:00 – 19:30"
       },
       "description": {
         "en": "Vespers service, preparation prayer, and liturgical hymnody according to Saint Yared.",
@@ -62,9 +63,10 @@
         "en": "23rd Day of every Ethiopian Month",
         "am": "በየወሩ በ23ኛው ቀን"
       },
+      "ethiopicDay": 23,
       "time": {
-        "en": "07:00 – 11:00 UK Time",
-        "am": "1:00 – 5:00 ጠዋት"
+        "en": "07:00 – 11:00",
+        "am": "07:00 – 11:00"
       },
       "description": {
         "en": "Commemoration of the patron saint and great martyr Kidus Giorgis.",
@@ -81,18 +83,19 @@
         "en": "16th & 21st Days of every Ethiopian Month",
         "am": "በየወሩ በ16 እና በ21ኛው ቀን"
       },
+      "ethiopicDays": [16, 21],
       "time": {
-        "en": "07:00 – 11:00 UK Time",
-        "am": "1:00 – 5:00 ጠዋት"
+        "en": "07:00 – 11:00",
+        "am": "07:00 – 11:00"
       },
       "description": {
-        "en": "Commemoration of the Holy Virgin Saint Mary (Pact of Mercy and Commemoration Day).",
+        "en": "Commemoration of the Holy Virgin Saint Mary (Covenant of Mercy and Commemoration Day).",
         "am": "የእመቤታችን የኪዳነ ምሕረት እና የማርያም ወርሃዊ በዓላት።"
       }
     }
   ],
   "calendarNote": {
-    "en": "Times are shown in UK local time (GMT/BST). Special feasts follow the Ethiopian Orthodox ecclesiastical calendar alongside Gregorian dates.",
-    "am": "ሰዓታት በዩናይትድ ኪንግደም ሰዓት (GMT/BST) የተገለጹ ናቸው። ልዩ በዓላት ከግሪጎሪያን አቆጣጠር ጎን ለጎን የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን የዘመን አቆጣጠርን ይከተላሉ።"
+    "en": "All times are in UK local time (GMT/BST). Commemorations follow the Ethiopian Orthodox ecclesiastical calendar alongside Gregorian dates.",
+    "am": "ሁሉም ሰዓታት በዩናይትድ ኪንግደም ሰዓት (GMT/BST) የተገለጹ ናቸው። ወርሃዊ በዓላት ከግሪጎሪያን አቆጣጠር ጎን ለጎን የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን የዘመን አቆጣጠርን ይከተላሉ።"
   }
 }

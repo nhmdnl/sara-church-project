@@ -24,7 +24,7 @@
       "churchName": "Felege Genet Sema'etu Kidus Giorgis Church",
       "dedication": "Dedicated to Saint Mary, the Virgin Mother of Jesus Christ, and Saint George the Martyr",
       "tradition": "Ethiopian Orthodox Tewahedo Church · London, UK",
-      "welcomeText": "A warm spiritual sanctuary rooted in the ancient Apostolic Christian tradition. Whether you are visiting for the first time or returning home, our doors and hearts are open to you.",
+      "welcomeText": "A warm spiritual sanctuary rooted in ancient Christian tradition. Whether you are visiting for the first time or returning home, our doors and hearts are open to you.",
       "nextServiceBadge": "Next Service",
       "locationLabel": "Pimlico, Central London",
       "getDirections": "Get Directions",
@@ -36,8 +36,8 @@
     "about": {
       "title": "About Our Parish",
       "subtitle": "Faith, heritage, and Christian community in the heart of London",
-      "body1": "Felege Genet Sema'etu Kidus Giorgis Church is a welcoming community of the Ethiopian Orthodox Tewahedo Church in London. Named in honor of the Holy Virgin Mary and the Great Martyr Saint George (Kidus Giorgis), our parish is dedicated to preserving the deep liturgical, musical, and theological heritage handed down through centuries of Christian history.",
-      "body2": "Our congregation brings together elders, families, students, and young adults from across London. We gather weekly for the Holy Divine Liturgy (Kidase), communal prayer, spiritual education, and mutual fellowship. All seekers of faith, visitors, and Christians from all backgrounds are received with reverence and warm Christian hospitality."
+      "body1": "Felege Genet Sema'etu Kidus Giorgis Church is a community of the Ethiopian Orthodox Tewahedo Church in London. Dedicated to the Holy Virgin Mary and Saint George the Martyr (Kidus Giorgis), our parish is devoted to preserving the deep liturgical, musical, and theological heritage of ancient Christian faith.",
+      "body2": "Our congregation brings together elders, families, students, and young adults from across London. We gather weekly for the Divine Liturgy (Kidase), communal prayer, spiritual education, and fellowship. Visitors and seekers from all backgrounds are received with reverence and Christian hospitality."
     },
     "services": {
       "title": "Service Times & Worship",
@@ -45,11 +45,12 @@
       "tableDay": "Day",
       "tableTime": "UK Local Time",
       "tableService": "Service & Liturgy",
-      "tableDetails": "Details"
+      "tableDetails": "Details",
+      "upcomingCommemoration": "Upcoming Commemoration:"
     },
     "findUs": {
       "title": "Find Us & Plan Your Visit",
-      "subtitle": "Located in central London with step-free access and excellent public transport links",
+      "subtitle": "Located in central London with step-free access and public transport links",
       "venueDetails": "Worship Location",
       "copyAddress": "Copy Address",
       "copied": "Address Copied!",
@@ -69,7 +70,7 @@
     },
     "contact": {
       "title": "Contact Our Parish",
-      "subtitle": "Our clergy and trustees are available to assist with inquiries, pastoral needs, and first-time visits",
+      "subtitle": "Parish stewards are available to assist with inquiries, pastoral needs, and first-time visits",
       "telephone": "Telephone",
       "email": "Email Address",
       "officeHours": "Pastoral Hours",
@@ -79,15 +80,15 @@
       "emailLabel": "Your Email Address",
       "emailPlaceholder": "e.g., yohannes@example.com",
       "messageLabel": "Your Message",
-      "messagePlaceholder": "How can our parish community assist you?",
+      "messagePlaceholder": "How can our parish stewards assist you?",
       "submitButton": "Send Message",
-      "privacyNoticeText": "By sending this message, you confirm that your contact details will be used solely by church stewards to respond to your request. For details, view our",
+      "privacyNoticeText": "We'll use your details only to reply. For details, view our",
       "privacyNoticeLink": "Privacy Notice",
-      "successMessage": "Thank you. Your message has been safely received. A parish volunteer will get back to you shortly."
+      "successMessage": "Thank you. Your message has been received. A parish steward will get back to you shortly."
     },
     "footer": {
       "charityHeading": "Registered Charity Information",
-      "charityText": "Felege Genet Sema'etu Kidus Giorgis Church is a registered charity in England and Wales under Charities Act 2011 s.39 (Registration No. Pending Trustee Confirmation).",
+      "charityText": "Felege Genet Sema'etu Kidus Giorgis Church is a registered charity in England and Wales under Charities Act 2011 s.39.",
       "quickLinks": "Quick Links",
       "privacyLink": "Privacy & Cookies",
       "accessibilityLink": "Accessibility Statement",
@@ -140,11 +141,12 @@
       "tableDay": "ቀን",
       "tableTime": "የለንደን ሰዓት",
       "tableService": "አገልግሎት",
-      "tableDetails": "ዝርዝር"
+      "tableDetails": "ዝርዝር",
+      "upcomingCommemoration": "ቀጣይ ወርሃዊ በዓል፡"
     },
     "findUs": {
       "title": "አድራሻችን እና የመምጫ መመሪያ",
-      "subtitle": "በማዕከላዊ ለንደን፣ ምቹ የህዝብ ትራንስፖርት እና ሙሉ ተደራሽነት ባለው አዳራሽ እንገናኛለን",
+      "subtitle": "በማዕከላዊ ለንደን፣ ምቹ የህዝብ ትራንስፖርት እና ተደራሽነት ባለው አዳራሽ እንገናኛለን",
       "venueDetails": "የአምልኮ ቦታ",
       "copyAddress": "አድራሻ ቅዳ",
       "copied": "አድራሻው ተቀድቷል!",
@@ -164,7 +166,7 @@
     },
     "contact": {
       "title": "ቤተ ክርስቲያናችንን ያነጋግሩ",
-      "subtitle": "አገልጋዮቻችን ለጥያቄዎ፣ ለመንፈሳዊ አገልግሎት እና ለመጀመሪያ ጉብኝትዎ ለማገዝ ዝግጁ ናቸው",
+      "subtitle": "የሰበካው አገልጋዮች ለጥያቄዎ፣ ለመንፈሳዊ አገልግሎት እና ለመጀመሪያ ጉብኝትዎ ለማገዝ ዝግጁ ናቸው",
       "telephone": "ስልክ ቁጥር",
       "email": "የኢሜይል አድራሻ",
       "officeHours": "የአገልግሎት ሰዓታት",
@@ -176,13 +178,13 @@
       "messageLabel": "መልእክትዎ",
       "messagePlaceholder": "እንዴት ልንረዳዎ እንችላለን?",
       "submitButton": "መልእክት ላክ",
-      "privacyNoticeText": "ይህንን ቅጽ ሲልኩ፣ መረጃዎ በቤተ ክርስቲያኑ አገልጋዮች ለጥያቄዎ ምላሽ ለመስጠት ብቻ ጥቅም ላይ እንዲውል ተስማምተዋል። ዝርዝሩን ይመልከቱ በ",
+      "privacyNoticeText": "መረጃዎ ምላሽ ለመስጠት ብቻ ጥቅም ላይ ይውላል። ዝርዝሩን ይመልከቱ በ",
       "privacyNoticeLink": "የግላዊነት ፖሊሲ",
-      "successMessage": "እናመሰግናለን። መልእክትዎ ደርሶናል። አገልጋዮቻችን በቅርቡ ምላሽ ይሰጡዎታል።"
+      "successMessage": "እናመሰግናለን። መልእክትዎ ደርሶናል። የሰበካው አገልጋዮች በቅርቡ ምላሽ ይሰጡዎታል።"
     },
     "footer": {
       "charityHeading": "የበጎ አድራጎት ምዝገባ መረጃ",
-      "charityText": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በእንግሊዝ እና ዌልስ በበጎ አድራጎት ህግ 2011 አንቀጽ 39 መሠረት የተመዘገበ የበጎ አድራጎት ድርጅት ነው (የምዝገባ ቁጥር በቅርቡ ይገለጻል)።",
+      "charityText": "ፈለገ ገነት ሰማዕቱ ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን በእንግሊዝ እና ዌልስ በበጎ አድራጎት ህግ 2011 አንቀጽ 39 መሠረት የተመዘገበ የበጎ አድራጎት ድርጅት ነው።",
       "quickLinks": "አቋራጭ አገናኞች",
       "privacyLink": "የግላዊነት ፖሊሲ እና ኩኪ",
       "accessibilityLink": "የተደራሽነት መግለጫ",

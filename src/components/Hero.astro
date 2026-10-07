@@ -1,6 +1,8 @@
 ---
 import ChurchEmblem from './ChurchEmblem.astro';
-import { getDictionary, getChurch, getServices, getVenue, type Locale, getLocalizedUrl } from '../utils/i18n';
+import Icons from './Icons.astro';
+import { getDictionary, getChurch, getVenue, type Locale, getLocalizedUrl } from '../utils/i18n';
+import { getNextScheduledService } from '../utils/calendar';
 
 interface Props {
   lang: Locale;
@@ -9,8 +11,8 @@ interface Props {
 const { lang } = Astro.props;
 const dict = getDictionary(lang);
 const church = getChurch(lang);
-const services = getServices(lang);
 const venue = getVenue(lang);
+const nextService = getNextScheduledService();
 ---
 
 <section class="relative bg-gradient-to-b from-church-cream via-church-cream to-church-cream-alt pt-8 pb-12 sm:pt-14 sm:pb-20 border-b border-church-border">
@@ -52,10 +54,7 @@ const venue = getVenue(lang);
             rel="noopener noreferrer"
             class="touch-target px-6 py-3.5 rounded-lg bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-lg shadow-md transition-all flex items-center gap-2.5 focus-visible:outline-church-gold"
           >
-            <svg class="w-6 h-6 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
+            <Icons name="mappin" className="w-6 h-6 text-church-gold" />
             <span>{dict.hero.getDirections}</span>
           </a>
 
@@ -63,9 +62,7 @@ const venue = getVenue(lang);
             href={`${getLocalizedUrl('/', lang)}#services`}
             class="touch-target px-5 py-3.5 rounded-lg border-2 border-church-burgundy text-church-burgundy hover:bg-church-burgundy hover:text-white font-bold text-lg transition-colors flex items-center gap-2 focus-visible:outline-church-gold"
           >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+            <Icons name="clock" className="w-5 h-5" />
             <span>{dict.hero.viewSchedule}</span>
           </a>
         </div>
@@ -82,26 +79,26 @@ const venue = getVenue(lang);
               {dict.hero.nextServiceBadge}
             </span>
             <span class="text-sm font-semibold text-church-muted">
-              {services.nextService.day}
+              {lang === 'am' ? nextService.dateAm : nextService.dateEn}
             </span>
           </div>
 
-          <!-- Service Time Highlight -->
+          <!-- Dynamic Service Time Highlight (TIME-3) -->
           <div class="space-y-1">
             <h2 class="text-2xl sm:text-3xl font-serif font-bold text-church-burgundy">
-              {services.nextService.title}
+              {lang === 'am' ? nextService.titleAm : nextService.titleEn}
             </h2>
             <p class="text-2xl sm:text-3xl font-extrabold text-church-gold-dark tracking-tight">
-              {services.nextService.time}
+              {nextService.time}
             </p>
           </div>
 
           <!-- Short Venue Location (HOME-2) -->
           <div class="bg-church-cream rounded-xl p-4 border border-church-border space-y-2">
             <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-church-burgundy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
+              <div class="text-church-burgundy shrink-0 mt-0.5">
+                <Icons name="mappin" className="w-6 h-6 text-church-burgundy" />
+              </div>
               <div>
                 <p class="font-bold text-church-charcoal text-base sm:text-lg">
                   {venue.name}
@@ -113,18 +110,18 @@ const venue = getVenue(lang);
             </div>
           </div>
 
-          <!-- Direct Maps App Trigger -->
-          <a
-            href={venue.directionsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="touch-target w-full py-3 px-4 rounded-lg bg-church-cream-alt hover:bg-church-gold hover:text-white text-church-burgundy font-bold text-base transition-colors flex items-center justify-center gap-2 border border-church-border"
-          >
-            <span>{dict.findUs.openInGoogle}</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
+          <!-- Single high-contrast directions action (avoiding duplicate button styling) -->
+          <div class="pt-1">
+            <a
+              href={venue.directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="touch-target w-full py-3 px-4 rounded-lg bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-base transition-colors flex items-center justify-center gap-2 shadow-xs focus-visible:outline-church-gold"
+            >
+              <span>{dict.findUs.openInGoogle}</span>
+              <Icons name="external" className="w-4 h-4 text-church-gold" />
+            </a>
+          </div>
 
         </div>
       </div>

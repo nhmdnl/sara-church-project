@@ -1,0 +1,358 @@
+---
+interface Props {
+  name:
+    | 'cross'
+    | 'train'
+    | 'bus'
+    | 'wheelchair'
+    | 'restroom'
+    | 'parking'
+    | 'mappin'
+    | 'check'
+    | 'alert'
+    | 'phone'
+    | 'mail'
+    | 'copy'
+    | 'clock'
+    | 'calendar'
+    | 'chalice'
+    | 'external';
+  className?: string;
+  size?: number;
+}
+
+const { name, className = 'w-5 h-5', size = 20 } = Astro.props;
+---
+
+{name === 'cross' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <!-- Ethiopian Orthodox cross icon -->
+    <path d="M11 2h2v4h4v2h-4v3h3v2h-3v7h-2v-7H8v-2h3V8H7V6h4V2z" />
+    <path d="M10 1h4v2h-4zM10 21h4v2h-4zM5 7h2v4H5zM17 7h2v4h-2z" opacity="0.7" />
+  </svg>
+)}
+
+{name === 'train' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="4" y="3" width="16" height="15" rx="3" />
+    <path d="M4 11h16" />
+    <path d="M8 7h.01" />
+    <path d="M16 7h.01" />
+    <path d="M7 18l-3 4" />
+    <path d="M17 18l3 4" />
+    <circle cx="8" cy="15" r="1" fill="currentColor" />
+    <circle cx="16" cy="15" r="1" fill="currentColor" />
+  </svg>
+)}
+
+{name === 'bus' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="4" y="3" width="16" height="15" rx="2" />
+    <path d="M4 10h16" />
+    <circle cx="8" cy="15" r="1.5" fill="currentColor" />
+    <circle cx="16" cy="15" r="1.5" fill="currentColor" />
+    <path d="M6 18v2" />
+    <path d="M18 18v2" />
+    <path d="M9 6h6" />
+  </svg>
+)}
+
+{name === 'wheelchair' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <circle cx="12" cy="4" r="2" />
+    <path d="M12 6v7h5" />
+    <path d="M9 13a5 5 0 1 0 5 5" />
+    <path d="M14 18h4" />
+  </svg>
+)}
+
+{name === 'restroom' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <circle cx="12" cy="4" r="2" />
+    <path d="M9 9h6l1 7h-2v5h-4v-5H8l1-7z" />
+  </svg>
+)}
+
+{name === 'parking' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="4" y="3" width="16" height="18" rx="3" />
+    <path d="M9 16V8h4a3 3 0 0 1 0 6H9" />
+  </svg>
+)}
+
+{name === 'mappin' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+)}
+
+{name === 'check' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+)}
+
+{name === 'alert' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+    <line x1="12" y1="9" x2="12" y2="13" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+)}
+
+{name === 'phone' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+)}
+
+{name === 'mail' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
+  </svg>
+)}
+
+{name === 'copy' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  </svg>
+)}
+
+{name === 'clock' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="12 6 12 12 16 14" />
+  </svg>
+)}
+
+{name === 'calendar' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+    <line x1="16" y1="2" x2="16" y2="6" />
+    <line x1="8" y1="2" x2="8" y2="6" />
+    <line x1="3" y1="10" x2="21" y2="10" />
+  </svg>
+)}
+
+{name === 'chalice' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M6 3h12v5a6 6 0 0 1-12 0V3z" />
+    <line x1="12" y1="14" x2="12" y2="20" />
+    <line x1="8" y1="20" x2="16" y2="20" />
+  </svg>
+)}
+
+{name === 'external' && (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={className}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+)}

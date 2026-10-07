@@ -1,4 +1,5 @@
 ---
+import Icons from './Icons.astro';
 import { getDictionary, getVenue, type Locale } from '../utils/i18n';
 
 interface Props {
@@ -39,8 +40,9 @@ const venue = getVenue(lang);
               {venue.name}
             </h3>
             {venue.hostBuilding && (
-              <p class="text-base font-semibold text-church-gold-dark">
-                📍 {venue.hostBuilding}
+              <p class="text-base font-semibold text-church-gold-dark flex items-center gap-1.5">
+                <Icons name="mappin" className="w-4 h-4 text-church-gold" />
+                <span>{venue.hostBuilding}</span>
               </p>
             )}
           </div>
@@ -59,16 +61,14 @@ const venue = getVenue(lang);
               <button
                 type="button"
                 id="copy-address-btn"
-                class="touch-target px-3.5 py-2 rounded-lg bg-church-cream-alt hover:bg-church-border text-church-charcoal text-sm font-bold transition-colors flex items-center gap-2 focus-visible:outline-church-gold"
+                class="touch-target px-3.5 py-2 rounded-lg bg-church-cream-alt hover:bg-church-border text-church-charcoal text-sm font-bold transition-colors flex items-center gap-2 focus-visible:outline-church-gold border border-church-border"
                 aria-label={dict.findUs.copyAddress}
                 data-address={venue.fullAddressString}
                 data-copied-text={dict.findUs.copied}
                 data-original-text={dict.findUs.copyAddress}
                 data-live-copied={lang === 'am' ? 'አድራሻው ተቀድቷል' : 'Address copied to clipboard'}
               >
-                <svg class="w-4 h-4 text-church-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-                </svg>
+                <Icons name="copy" className="w-4 h-4 text-church-burgundy" />
                 <span id="copy-btn-text">{dict.findUs.copyAddress}</span>
               </button>
               <span id="copy-status-live" class="sr-only" aria-live="polite" role="status"></span>
@@ -78,9 +78,7 @@ const venue = getVenue(lang);
           <!-- Host Entrance Instructions (FIND-6) -->
           <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 space-y-1">
             <h4 class="font-bold text-amber-950 text-base flex items-center gap-2">
-              <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
+              <Icons name="alert" className="w-5 h-5 text-amber-800" />
               <span>{dict.findUs.entranceTitle}</span>
             </h4>
             <p class="text-sm sm:text-base text-amber-900 leading-relaxed">
@@ -88,18 +86,15 @@ const venue = getVenue(lang);
             </p>
           </div>
 
-          <!-- Directions Buttons (FIND-3) -->
+          <!-- Directions Buttons (FIND-3): High-contrast with solid colors -->
           <div class="space-y-3 pt-2">
             <a
               href={venue.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="touch-target w-full py-3.5 px-4 rounded-xl bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-base transition-colors flex items-center justify-center gap-2 shadow-xs"
+              class="touch-target w-full py-3.5 px-4 rounded-xl bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-base transition-colors flex items-center justify-center gap-2 shadow-xs border-2 border-church-burgundy"
             >
-              <svg class="w-5 h-5 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
+              <Icons name="mappin" className="w-5 h-5 text-church-gold" />
               <span>{dict.findUs.openInGoogle}</span>
             </a>
 
@@ -107,8 +102,9 @@ const venue = getVenue(lang);
               href={venue.appleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="touch-target w-full py-3 px-4 rounded-xl border border-church-border bg-white hover:bg-church-cream-alt text-church-charcoal font-bold text-base transition-colors flex items-center justify-center gap-2"
+              class="touch-target w-full py-3 px-4 rounded-xl border-2 border-church-charcoal bg-white hover:bg-church-cream-alt text-church-charcoal font-bold text-base transition-colors flex items-center justify-center gap-2"
             >
+              <Icons name="external" className="w-4 h-4 text-church-charcoal" />
               <span>{dict.findUs.openInApple}</span>
             </a>
           </div>
@@ -127,11 +123,12 @@ const venue = getVenue(lang);
                 {dict.findUs.interactiveMapTitle}
               </h3>
               <p class="text-xs sm:text-sm text-church-muted mt-0.5">
-                {dict.findUs.mapNotice}
+                {dict.findUs.mapLoadedNotice}
               </p>
             </div>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
-              ✓ {dict.findUs.mapPrivacyBadge}
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold">
+              <Icons name="check" className="w-3.5 h-3.5 text-emerald-700" />
+              <span>{dict.findUs.mapPrivacyBadge}</span>
             </span>
           </div>
 
@@ -140,10 +137,9 @@ const venue = getVenue(lang);
             
             <!-- Static Map Fallback (FIND-2) -->
             <div id="static-map-view" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-stone-200 via-stone-100 to-amber-50">
-              <svg class="w-16 h-16 text-church-burgundy animate-bounce mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
+              <div class="text-church-burgundy animate-bounce mb-2">
+                <Icons name="mappin" className="w-14 h-14 text-church-burgundy" />
+              </div>
               <h4 class="text-lg font-bold text-church-charcoal">
                 {venue.name}
               </h4>
@@ -155,14 +151,12 @@ const venue = getVenue(lang);
               <button
                 type="button"
                 id="load-interactive-map-btn"
-                class="mt-4 touch-target px-5 py-2.5 rounded-lg bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-base shadow-sm transition-colors flex items-center gap-2 focus-visible:outline-church-gold"
+                class="mt-4 touch-target px-5 py-2.5 rounded-lg bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-base shadow-sm transition-colors flex items-center gap-2 focus-visible:outline-church-gold border-2 border-church-burgundy"
                 aria-expanded="false"
                 aria-controls="interactive-map-frame"
                 data-loaded-announcement={dict.findUs.mapLoadedNotice}
               >
-                <svg class="w-5 h-5 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
-                </svg>
+                <Icons name="mappin" className="w-5 h-5 text-church-gold" />
                 <span>{dict.findUs.loadMapButton}</span>
               </button>
             </div>
@@ -186,7 +180,7 @@ const venue = getVenue(lang);
             <!-- Stations -->
             <div class="space-y-3">
               <h4 class="font-bold text-church-charcoal text-base flex items-center gap-2">
-                <span>🚆</span>
+                <Icons name="train" className="w-5 h-5 text-church-burgundy" />
                 <span>{dict.findUs.nearestStations}</span>
               </h4>
               <ul class="space-y-2">
@@ -202,13 +196,13 @@ const venue = getVenue(lang);
             <!-- Buses -->
             <div class="space-y-3">
               <h4 class="font-bold text-church-charcoal text-base flex items-center gap-2">
-                <span>🚍</span>
+                <Icons name="bus" className="w-5 h-5 text-church-burgundy" />
                 <span>{dict.findUs.busRoutesTitle}</span>
               </h4>
               <ul class="space-y-2">
                 {venue.publicTransport.busRoutes.map((b) => (
                   <li class="bg-church-cream/60 p-3 rounded-lg border border-church-border/50 text-sm sm:text-base">
-                    <span class="inline-block px-2 py-0.5 bg-church-burgundy text-white font-bold rounded text-xs mr-1">
+                    <span class="inline-block px-2.5 py-0.5 bg-church-burgundy text-white font-extrabold rounded text-xs mr-1.5 shadow-xs">
                       {b.routes}
                     </span>
                     <strong class="text-church-charcoal">{b.stop}</strong>
@@ -228,9 +222,7 @@ const venue = getVenue(lang);
               class="touch-target min-h-[44px] min-w-[44px] inline-flex items-center gap-2 text-church-burgundy font-bold text-base hover:underline focus-visible:outline-church-gold"
             >
               <span>{dict.findUs.planJourneyTfl}</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-              </svg>
+              <Icons name="external" className="w-4 h-4 text-church-burgundy" />
             </a>
           </div>
         </div>
@@ -241,14 +233,19 @@ const venue = getVenue(lang);
 
     <!-- Parking & Accessibility Details (FIND-5) -->
     <div class="bg-church-cream-alt/50 rounded-2xl p-6 sm:p-8 border border-church-border space-y-6">
-      <h3 class="font-serif text-2xl font-bold text-church-burgundy">
-        {dict.findUs.accessTitle}
-      </h3>
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h3 class="font-serif text-2xl font-bold text-church-burgundy">
+          {dict.findUs.accessTitle}
+        </h3>
+        <span class="text-xs sm:text-sm font-semibold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+          {lang === 'am' ? 'ጊዜያዊ ረቂቅ መረጃ — ማረጋገጫ ይጠብቃል' : 'Provisional Draft — Awaiting Host Sign-off'}
+        </span>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white p-5 rounded-xl border border-church-border/70 space-y-2">
-          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold text-xl">
-            ♿
+          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold">
+            <Icons name="wheelchair" className="w-6 h-6 text-church-burgundy" />
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
             {lang === 'am' ? 'ደረጃ የሌለው መግቢያ' : 'Step-free Access'}
@@ -259,8 +256,8 @@ const venue = getVenue(lang);
         </div>
 
         <div class="bg-white p-5 rounded-xl border border-church-border/70 space-y-2">
-          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold text-xl">
-            🚻
+          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold">
+            <Icons name="restroom" className="w-6 h-6 text-church-burgundy" />
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
             {lang === 'am' ? 'ተስማሚ መጸዳጃ' : 'Accessible Toilets'}
@@ -271,8 +268,8 @@ const venue = getVenue(lang);
         </div>
 
         <div class="bg-white p-5 rounded-xl border border-church-border/70 space-y-2">
-          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold text-xl">
-            🅿️
+          <div class="w-10 h-10 rounded-lg bg-church-cream flex items-center justify-center text-church-burgundy font-bold">
+            <Icons name="parking" className="w-6 h-6 text-church-burgundy" />
           </div>
           <h4 class="font-bold text-church-charcoal text-lg">
             {lang === 'am' ? 'የመኪና ማቆሚያ' : 'Parking & Blue Badge'}

@@ -129,3 +129,15 @@
 aside .flex {
   flex-wrap: wrap;
 }
+
+/* High contrast print and PDF export styling (Item 2) */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  button, a {
+    print-color-adjust: exact !important;
+  }
+}

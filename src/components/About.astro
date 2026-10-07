@@ -1,5 +1,6 @@
 ---
 import ChurchEmblem from './ChurchEmblem.astro';
+import Icons from './Icons.astro';
 import { getDictionary, getChurch, type Locale } from '../utils/i18n';
 
 interface Props {
@@ -27,8 +28,8 @@ const church = getChurch(lang);
       </p>
     </div>
 
-    <!-- About us narrative (~100-150 words) (HOME-3) -->
-    <div class="mt-8 space-y-6 text-church-charcoal text-lg sm:text-xl leading-relaxed text-left sm:text-justify bg-church-cream/40 p-6 sm:p-8 rounded-2xl border border-church-border/80 shadow-xs">
+    <!-- About us narrative (HOME-3): strictly left-aligned for optimal reading comfort -->
+    <div class="mt-8 space-y-6 text-church-charcoal text-lg sm:text-xl leading-relaxed text-left bg-church-cream/40 p-6 sm:p-8 rounded-2xl border border-church-border/80 shadow-xs">
       <p>
         {dict.about.body1}
       </p>
@@ -37,8 +38,9 @@ const church = getChurch(lang);
       </p>
 
       <div class="pt-4 border-t border-church-border/60 flex flex-wrap items-center justify-between gap-4 text-sm sm:text-base text-church-muted">
-        <span class="font-semibold text-church-burgundy">
-          ✝ {church.tradition}
+        <span class="font-semibold text-church-burgundy inline-flex items-center gap-1.5">
+          <Icons name="cross" className="w-4 h-4 text-church-gold" />
+          <span>{church.tradition}</span>
         </span>
         <span class="italic">
           {church.dedication}

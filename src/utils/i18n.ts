@@ -112,6 +112,11 @@ export function getVenue(lang: Locale) {
         title: venueData.firstVisitGuide.photography.title[lang],
         detail: venueData.firstVisitGuide.photography.detail[lang],
       },
+      {
+        key: 'communion',
+        title: venueData.firstVisitGuide.communion.title[lang],
+        detail: venueData.firstVisitGuide.communion.detail[lang],
+      },
     ],
   };
 }

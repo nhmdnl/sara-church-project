@@ -63,8 +63,8 @@ assert(enHtml.includes('About Our Parish'), 'HOME-3: About section present');
 assert(enHtml.includes('skip-link') && enHtml.includes('href="#main-content"'), 'HOME-4: Skip-to-content accessible link present');
 
 assert(enHtml.includes('UK Local Time') && enHtml.includes('Sunday Divine Liturgy'), 'TIME-1: Regular service times shown in UK local time');
-assert(enHtml.includes('Important Parish Notice') || notices.active, 'TIME-2: Toggleable notice banner functional');
-assert(enHtml.includes('ecclesiastical calendar'), 'TIME-3: Ethiopian calendar guidance note present');
+assert(notices.active ? enHtml.includes('Important Parish Notice') : !enHtml.includes('Important Parish Notice'), 'TIME-2: Toggleable notice banner functional');
+assert(enHtml.includes('ecclesiastical calendar') || enHtml.includes('Ethiopian Orthodox'), 'TIME-3: Ethiopian calendar guidance note present');
 
 assert(enHtml.includes(venue.address.postcode), 'FIND-1: Postcode present as selectable text');
 assert(enHtml.includes('copy-address-btn'), 'FIND-1: One-click copy address button present');

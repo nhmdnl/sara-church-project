@@ -1,4 +1,5 @@
 ---
+import Icons from './Icons.astro';
 import { getDictionary, getChurch, type Locale, getLocalizedUrl } from '../utils/i18n';
 
 interface Props {
@@ -38,9 +39,7 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
             <!-- Tappable Phone (CONT-1) -->
             <div class="flex items-start gap-4 p-4 rounded-xl bg-church-cream/60 border border-church-border/70">
               <div class="w-10 h-10 rounded-full bg-church-burgundy/10 text-church-burgundy flex items-center justify-center shrink-0 mt-0.5">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                </svg>
+                <Icons name="phone" className="w-5 h-5 text-church-burgundy" />
               </div>
               <div class="space-y-1 min-w-0 flex-1">
                 <span class="text-xs font-bold text-church-gold-dark uppercase tracking-wider block">
@@ -61,9 +60,7 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
             <!-- Tappable Email (CONT-1) -->
             <div class="flex items-start gap-4 p-4 rounded-xl bg-church-cream/60 border border-church-border/70">
               <div class="w-10 h-10 rounded-full bg-church-burgundy/10 text-church-burgundy flex items-center justify-center shrink-0 mt-0.5">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
+                <Icons name="mail" className="w-5 h-5 text-church-burgundy" />
               </div>
               <div class="space-y-1 min-w-0 flex-1">
                 <span class="text-xs font-bold text-church-gold-dark uppercase tracking-wider block">
@@ -89,7 +86,7 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
               {lang === 'am' ? 'ይፋዊ ማኅበራዊ ገጾች' : 'Official Channels'}
             </h4>
             <p class="text-sm text-church-muted">
-              {lang === 'am' ? 'ይፋዊ የቴሌግራም ወይም የማኅበራዊ ገጽ አድራሻዎች በቅርቡ ይፋ ይደረጋሉ።' : 'Official parish announcement channels will be published upon trustee verification.'}
+              {lang === 'am' ? 'ይፋዊ የማኅበራዊ ገጽ አድራሻዎች በአስተዳዳሪዎች ማረጋገጫ ሲያገኙ ይፋ ይደረጋሉ።' : 'Official parish announcement channels will be published upon trustee verification.'}
             </p>
           </div>
 
@@ -179,21 +176,21 @@ const privacyUrl = getLocalizedUrl('/privacy', lang);
               </a>.
             </div>
 
-            <!-- Submit Button (CONT-2) -->
+            <!-- Submit Button (CONT-2): High-contrast solid button, enabled by default -->
             <button
               type="submit"
               id="submit-form-btn"
-              class="touch-target w-full sm:w-auto px-8 py-3.5 rounded-xl bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-lg shadow-sm transition-all focus-visible:outline-church-gold"
+              class="touch-target w-full sm:w-auto px-8 py-3.5 rounded-xl bg-church-burgundy text-white hover:bg-church-burgundy-light font-bold text-lg shadow-sm transition-all focus-visible:outline-church-gold border-2 border-church-burgundy"
             >
               {dict.contact.submitButton}
             </button>
 
             <!-- Feedback Alert Banners -->
-            <div id="form-success-alert" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-base font-semibold" role="alert">
+            <div id="form-success-alert" class="hidden p-4 rounded-xl bg-emerald-50 border-2 border-emerald-300 text-emerald-950 text-base font-semibold" role="alert">
               ✓ {dict.contact.successMessage}
             </div>
 
-            <div id="form-error-alert" class="hidden p-4 rounded-xl bg-red-50 border border-red-200 text-red-900 text-base font-semibold" role="alert">
+            <div id="form-error-alert" class="hidden p-4 rounded-xl bg-red-50 border-2 border-red-300 text-red-950 text-base font-semibold" role="alert">
               ⚠ {lang === 'am' ? 'እባክዎ ሁሉንም መስኮች በትክክል መሙላትዎን ያረጋግጡ።' : 'Please check the required fields and try submitting again.'}
             </div>
 
